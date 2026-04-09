@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskland — Case Study | João Vitor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Case study specific styles */
+    .case-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(180deg, #0b0d1e 0%, #15182d 50%, var(--bg) 100%);
+    }
+
+    .case-hero-inner {
+      max-width: 800px;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .case-logo {
+      width: 280px;
+      image-rendering: pixelated;
+    }
+
+    .case-tagline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .case-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: none;
+    }
+
+    .case-link-primary {
+      background: #e39f64;
+      color: #0b0d1e;
+      border: none;
+    }
+
+    .case-link-primary:hover {
+      background: #f0b47a;
+      box-shadow: 0 0 20px rgba(227, 159, 100, 0.4);
+    }
+
+    .case-link-secondary {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .case-link-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      color: #fff;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-hover);
+      border-radius: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .back-link:hover {
+      border-color: var(--text-primary);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Case study content */
+    .case-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 2rem 6rem;
+    }
+
+    .case-section {
+      margin-bottom: 4rem;
+    }
+
+    .case-section h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .case-section h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      margin-top: 2rem;
+      color: var(--text-primary);
+    }
+
+    .case-section p {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .case-section ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-section li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-section li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #e39f64;
+      font-weight: 700;
+    }
+
+    .case-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .case-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .case-meta-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .case-meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .case-divider {
+      width: 40px;
+      height: 3px;
+      background: #e39f64;
+      border-radius: 2px;
+      margin: 3rem 0;
+    }
+
+    /* Trail / Timeline */
+    .case-trail {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .case-trail::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #e39f64, var(--border));
+      border-radius: 2px;
+    }
+
+    .trail-step {
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+
+    .trail-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .trail-marker {
+      position: absolute;
+      left: -2rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #e39f64;
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px #e39f64;
+      z-index: 2;
+    }
+
+    .trail-step-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .trail-step-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .case-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .case-logo { width: 200px; }
+      .case-hero-inner { padding: 5rem 1.5rem 3rem; }
+      .case-content { padding: 1.5rem 1.5rem 4rem; }
+      .case-section h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="dotGrid"></canvas>
+
+  <a href="index.html" class="back-link">&#8592; Back to Portfolio</a>
+
+  <!-- Hero -->
+  <section class="case-hero">
+    <div class="case-hero-inner">
+      <img src="Images/taskland-logo.png" alt="Taskland" class="case-logo" />
+      <p class="case-tagline">A gamified task manager that turns your to-do list into an RPG adventure. Complete quests, defeat monsters, and level up while conquering your real-life goals.</p>
+      <div class="case-links">
+        <a href="https://tasklandofficial.vercel.app" target="_blank" rel="noopener" class="case-link case-link-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Try Taskland
+        </a>
+        <a href="https://github.com/joaovitordesignrs-sketch/Tasklandofficial" target="_blank" rel="noopener" class="case-link case-link-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="case-content">
+
+    <!-- Project Meta -->
+    <div class="case-meta">
+      <div class="case-meta-item">
+        <span class="case-meta-label">Role</span>
+        <span class="case-meta-value">Product Designer & Frontend Dev</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Timeline</span>
+        <span class="case-meta-value">2025 — Present</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Stack</span>
+        <span class="case-meta-value">React, TypeScript, Supabase, Vite</span>
+      </div>
+      <div class="case-meta-item">
+        <span class="case-meta-label">Type</span>
+        <span class="case-meta-value">Personal Project</span>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <div class="case-section">
+      <h2>Overview</h2>
+      <p>Taskland is a gamified productivity app that transforms everyday tasks into RPG battles. Instead of a boring checklist, users face monsters they must defeat by completing their real-world tasks. Each task deals damage, and streaks unlock multipliers and achievements.</p>
+      <p>The project was born from a personal frustration: traditional task managers feel lifeless. I wanted to create something that makes productivity feel like an adventure — where checking off a task gives you the same dopamine hit as landing a critical strike in a game.</p>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- Problem -->
+    <div class="case-section">
+      <h2>The Problem</h2>
+      <p>Most task managers fail at one thing: keeping people engaged. Users create tasks, feel overwhelmed, and abandon the app within days. The core problem isn't features — it's motivation.</p>
+      <ul>
+        <li>Task completion rates drop 60% after the first week in traditional apps</li>
+        <li>No sense of progress or reward beyond a simple checkmark</li>
+        <li>No emotional connection to the tool</li>
+        <li>Habit building has no feedback loop</li>
+      </ul>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- Solution -->
+    <div class="case-section">
+      <h2>The Solution</h2>
+      <p>Taskland wraps productivity in RPG mechanics that create an emotional reward system:</p>
+
+      <h3>Campaign Mode</h3>
+      <p>Tasks are grouped into missions. Each mission has a monster with HP. Completing tasks deals damage. Defeating monsters earns XP and unlocks the next encounter. This creates a narrative arc that keeps users progressing.</p>
+
+      <h3>Difficulty & Damage System</h3>
+      <p>Tasks have three difficulty levels (Easy, Medium, Hard) that affect how much damage they deal. Hard tasks deal more damage and give more XP, incentivizing users to tackle challenging work first.</p>
+
+      <h3>Habits as Power Multipliers</h3>
+      <p>Daily habits (exercise, reading, meditation) act as permanent power multipliers. The more consistent your habits, the stronger your character becomes — creating a direct link between real-life consistency and in-game power.</p>
+
+      <h3>Achievement System</h3>
+      <p>Bronze, Silver, Gold, Diamond, and Legendary achievements reward milestones. Each achievement grants a permanent damage bonus, giving long-term users a tangible advantage.</p>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- Design Process Trail -->
+    <div class="case-section">
+      <h2>Design Process</h2>
+      <div class="case-trail">
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">1. Research & Ideation</div>
+          <div class="trail-step-desc">Studied gamification patterns in apps like Habitica, Forest, and Duolingo. Identified what works (streaks, visual progress) and what doesn't (overcomplicated RPG systems, social pressure).</div>
+        </div>
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">2. Design System</div>
+          <div class="trail-step-desc">Built a complete design token system with pixel-art RPG aesthetic. Defined color tokens, typography scale (Press Start 2P + VT323), spacing, and reusable components (RpgButton, PixelCard, PixelTabs, PageShell).</div>
+        </div>
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">3. Core Gameplay Loop</div>
+          <div class="trail-step-desc">Designed the task → damage → monster HP → defeat → XP → level up loop. Balanced difficulty multipliers and XP curves to keep progression satisfying across hundreds of monsters.</div>
+        </div>
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">4. Frontend Implementation</div>
+          <div class="trail-step-desc">Built the entire app in React + TypeScript with Vite. Implemented real-time Supabase sync, floating damage animations, spider charts for power stats, and responsive layouts for mobile and desktop.</div>
+        </div>
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">5. Auth & Backend</div>
+          <div class="trail-step-desc">Email verification, password reset, cross-device cloud sync via Supabase Edge Functions. All game state persists server-side with real-time subscriptions for multi-device play.</div>
+        </div>
+        <div class="trail-step">
+          <div class="trail-marker"></div>
+          <div class="trail-step-title">6. Launch Preparation</div>
+          <div class="trail-step-desc">Audit and fix of 250+ design token violations, EN localization, removal of admin/debug tools, route restructuring, and product page creation for public launch.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- Key Decisions -->
+    <div class="case-section">
+      <h2>Key Design Decisions</h2>
+
+      <h3>Pixel Art Aesthetic</h3>
+      <p>Chose pixel art over modern UI to create emotional distance from "work" apps. The retro aesthetic signals "this is a game" — reducing anxiety and making task management feel playful rather than stressful.</p>
+
+      <h3>3-Click Task Creation</h3>
+      <p>Reduced task creation to: type name → pick difficulty → Enter. No required fields for tags, dates, or categories. Friction kills productivity apps — every extra field is a reason to not add the task.</p>
+
+      <h3>Design Token System</h3>
+      <p>Every color, font size, spacing, and border radius is a named token. This enabled rapid iteration, theme support (dark/light), and guaranteed visual consistency across 30+ components.</p>
+    </div>
+
+    <div class="case-divider"></div>
+
+    <!-- Results -->
+    <div class="case-section">
+      <h2>Technical Highlights</h2>
+      <ul>
+        <li>30+ custom React components with full design token conformance</li>
+        <li>Real-time cloud sync with Supabase (cross-device, offline-resilient)</li>
+        <li>Custom game engine with XP curves, damage formulas, and monster generation</li>
+        <li>Responsive design: full mobile and desktop experience</li>
+        <li>Email verification and password reset auth flow</li>
+        <li>SVG spider chart for power stat visualization</li>
+        <li>Notion-style tag system with multi-select and filter dropdowns</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align: center; margin-top: 3rem;">
+      <div class="case-links">
+        <a href="https://tasklandofficial.vercel.app" target="_blank" rel="noopener" class="case-link case-link-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Try Taskland
+        </a>
+        <a href="https://github.com/joaovitordesignrs-sketch/Tasklandofficial" target="_blank" rel="noopener" class="case-link case-link-secondary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="case-footer">
+    <p>&copy; 2026 Jo&atilde;o Vitor. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
