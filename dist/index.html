@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>João Vitor Ramos — Product Designer</title>
-  <link rel="icon" type="image/png" href="Images/favicon.png">
-  <link rel="stylesheet" href="style.css">
+  <title>João Vitor — Product Designer & Frontend Dev</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-Bjew3I0C.css">
 </head>
 <body>
   <div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
@@ -70,22 +69,22 @@
       <p class="hero-tagline parallax-fade" data-i18n="hero.tagline">Designing products that people actually use.</p>
 
       <div class="profile-card" id="card">
-        <img src="Images/Foto.jpg" alt="João Vitor" />
+        <img src="/assets/Foto-CY1Klhko.jpg" alt="João Vitor" />
         <div class="glass-panel">
           <div class="glass-top">
             <div class="glass-info">
               <p class="profile-greeting" data-i18n="hero.greeting">I AM</p>
-              <h1 class="profile-name">João Vitor Ramos</h1>
+              <h1 class="profile-name">João Vitor</h1>
             </div>
             <div class="profile-roles">
               <span>Product Designer</span>
               <span class="dot-sep"></span>
-              <span>Design Systems</span>
+              <span>Frontend Dev</span>
             </div>
           </div>
           <div class="glass-bottom">
             <div class="profile-links">
-              <a href="https://github.com/joaovitordesignrs-sketch" target="_blank" rel="noopener" aria-label="GitHub">
+              <a href="https://github.com/seu-usuario" target="_blank" rel="noopener" aria-label="GitHub">
                 <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 <span>GitHub</span>
               </a>
@@ -108,14 +107,32 @@
   <section class="highlights-section" id="highlights">
     <h2 class="highlights-title parallax-fade" data-i18n="highlights.title">Destaques</h2>
     <div class="highlights-grid">
-      <a class="highlight-card highlight-card-full parallax-fade" href="taskland.html" data-content-id="taskland" style="background: linear-gradient(135deg, #0b0d1e 0%, #15182d 60%, #1a2040 100%);">
-        <img src="Images/taskland-logo.png" alt="Taskland" class="highlight-full-logo" style="image-rendering: pixelated;" />
-        <div class="highlight-full-overlay">
+      <a class="highlight-card parallax-fade" href="taskland.html" data-content-id="taskland">
+        <div class="highlight-thumb" style="background: linear-gradient(135deg, #0b0d1e, #15182d); display: flex; align-items: center; justify-content: center;">
+          <img src="/assets/taskland-logo-DZDiDXbt.png" alt="Taskland" style="width: 120px; image-rendering: pixelated;" />
           <span class="highlight-badge" data-i18n="highlights.badge.project">Projeto</span>
-          <div class="highlight-full-info">
-            <h3>Taskland</h3>
-            <p data-i18n="highlights.taskland.desc">Gamified task manager that turns your to-do list into RPG battles. Full case study.</p>
-          </div>
+        </div>
+        <div class="highlight-info">
+          <h3>Taskland</h3>
+          <p data-i18n="highlights.taskland.desc">Gamified task manager that turns your to-do list into RPG battles. Full case study.</p>
+        </div>
+      </a>
+      <a class="highlight-card parallax-fade" href="#" target="_blank" rel="noopener" data-content-id="h2">
+        <div class="highlight-thumb highlight-thumb-dark">
+          <span class="highlight-badge">LinkedIn</span>
+        </div>
+        <div class="highlight-info">
+          <h3 data-i18n="highlights.linkedin.title">Post sobre Design Systems</h3>
+          <p data-i18n="highlights.linkedin.desc">Reflexao sobre como escalar design systems em startups de alto crescimento.</p>
+        </div>
+      </a>
+      <a class="highlight-card parallax-fade" href="#" target="_blank" rel="noopener" data-content-id="h3">
+        <div class="highlight-thumb highlight-thumb-warm">
+          <span class="highlight-badge" data-i18n="highlights.badge.article">Artigo</span>
+        </div>
+        <div class="highlight-info">
+          <h3 data-i18n="highlights.article.title">Titulo do Artigo</h3>
+          <p data-i18n="highlights.article.desc">Um artigo sobre processo de design, ferramentas ou aprendizados de carreira.</p>
         </div>
       </a>
     </div>
@@ -129,47 +146,47 @@
         <div class="timeline-line"></div>
         <div class="timeline-item parallax-fade">
           <div class="timeline-marker"></div>
-          <div class="timeline-date">Dec 2025 — Mar 2026 <span class="badge-current" data-i18n="exp.current">Atual</span></div>
+          <div class="timeline-date">2025 — 2026 <span class="badge-current" data-i18n="exp.current">Atual</span></div>
           <div class="timeline-card">
             <div class="timeline-header">
               <h3>Product Designer</h3>
-              <span class="timeline-company">WePlay — London, UK (Remote)</span>
+              <span class="timeline-company">WePlay — Londres, UK</span>
             </div>
             <p data-i18n="exp.weplay">Atuação internacional remota em entretenimento esportivo e esports. Experiências de produto para web, colaboração com times multifuncionais em diferentes fusos. Design-to-code handoff com React.js.</p>
           </div>
         </div>
         <div class="timeline-item parallax-fade">
           <div class="timeline-marker"></div>
-          <div class="timeline-date">Apr 2025 — Dec 2025</div>
+          <div class="timeline-date">2025</div>
           <div class="timeline-card">
             <div class="timeline-header">
               <h3>Senior Product Designer</h3>
-              <span class="timeline-company">Moovz — Goiânia, Brazil</span>
+              <span class="timeline-company">Moovz</span>
             </div>
             <p data-i18n="exp.moovz">Liderança de design em fitness tech. Design end-to-end mobile (iOS/Android) e web, Design System escalável no Figma, lançamento do Ranking de Desafios. Contribuição direta no crescimento de 35 para +600 clientes em 12 meses.</p>
           </div>
         </div>
         <div class="timeline-item parallax-fade">
           <div class="timeline-marker"></div>
-          <div class="timeline-date">Jan 2024 — Apr 2025</div>
+          <div class="timeline-date">2024 — 2025</div>
           <div class="timeline-card">
-            <div class="timeline-header"><h3>UX Designer</h3><span class="timeline-company">Docnix — Goiânia, Brazil (Hybrid)</span></div>
+            <div class="timeline-header"><h3>UX Designer</h3><span class="timeline-company">Docnix</span></div>
             <p data-i18n="exp.docnix">Atuação híbrida com foco em UX/UI em ambiente de produto estruturado. Pesquisa, prototipagem e trabalho colaborativo com times de produto e engenharia.</p>
           </div>
         </div>
         <div class="timeline-item parallax-fade">
           <div class="timeline-marker"></div>
-          <div class="timeline-date">Dec 2020 — Apr 2023</div>
+          <div class="timeline-date">2020 — 2023</div>
           <div class="timeline-card">
-            <div class="timeline-header"><h3>UX Designer</h3><span class="timeline-company">Pacto Soluções — Goiânia, Brazil</span></div>
+            <div class="timeline-header"><h3>UX Designer</h3><span class="timeline-company">Pacto Soluções</span></div>
             <p data-i18n="exp.pacto">Primeira experiência formal em UX com foco em soluções corporativas. Criação de mockups, mapeamento da experiência do cliente e design centrado no usuário.</p>
           </div>
         </div>
         <div class="timeline-item parallax-fade">
           <div class="timeline-marker"></div>
-          <div class="timeline-date">Jan 2019 — Apr 2025</div>
+          <div class="timeline-date">2019 — 2025</div>
           <div class="timeline-card">
-            <div class="timeline-header"><h3 data-i18n="exp.freelance.role">Graphic Designer & UX/UI</h3><span class="timeline-company">Freelance — Remote</span></div>
+            <div class="timeline-header"><h3 data-i18n="exp.freelance.role">Designer Gráfico / UX-UI</h3><span class="timeline-company">Freelance</span></div>
             <p data-i18n="exp.freelance">+6 anos de atuação independente em branding, marketing digital e design de produto. Identidade visual, tipografia, teoria das cores e gestão de projetos.</p>
           </div>
         </div>
@@ -224,12 +241,22 @@
       <div class="projects-grid">
         <a class="project-card parallax-fade" href="taskland.html" data-content-id="taskland">
           <div class="project-thumb" style="background: linear-gradient(135deg, #0b0d1e, #15182d); border-color: rgba(227,159,100,0.3);">
-            <img src="Images/taskland-logo.png" alt="Taskland" style="width: 48px; image-rendering: pixelated;" />
+            <img src="/assets/taskland-logo-DZDiDXbt.png" alt="Taskland" style="width: 48px; image-rendering: pixelated;" />
           </div>
           <div class="project-info">
             <h3>Taskland</h3>
             <p data-i18n="projects.taskland.desc">Product Design & Frontend · 2025</p>
           </div>
+          <span class="project-arrow">&#8599;</span>
+        </a>
+        <a class="project-card parallax-fade" href="#" target="_blank" rel="noopener" data-content-id="p2">
+          <div class="project-thumb"><span>02</span></div>
+          <div class="project-info"><h3>Nome do Projeto</h3><p>Frontend · 2023</p></div>
+          <span class="project-arrow">&#8599;</span>
+        </a>
+        <a class="project-card parallax-fade" href="#" target="_blank" rel="noopener" data-content-id="p3">
+          <div class="project-thumb"><span>03</span></div>
+          <div class="project-info"><h3>Nome do Projeto</h3><p>UI/UX Design · 2023</p></div>
           <span class="project-arrow">&#8599;</span>
         </a>
       </div>
@@ -242,15 +269,13 @@
       <h2 class="section-title parallax-fade" data-i18n="contact.title">Vamos conversar?</h2>
       <a href="mailto:joaovitordesign.rs@gmail.com" class="contact-email parallax-fade">joaovitordesign.rs@gmail.com</a>
       <div class="contact-links parallax-fade">
-        <a href="https://wa.me/5562981929917" target="_blank" rel="noopener">WhatsApp</a>
-        <span class="contact-sep">/</span>
         <a href="https://www.linkedin.com/in/joaovitor-design/" target="_blank" rel="noopener">LinkedIn</a>
         <span class="contact-sep">/</span>
-        <a href="https://github.com/joaovitordesignrs-sketch" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/seu-usuario" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
     <footer class="site-footer">
-      <p>&copy; 2026 João Vitor Ramos. All rights reserved.</p>
+      <p>&copy; 2026 João Vitor. All rights reserved.</p>
     </footer>
   </section>
 
