@@ -286,56 +286,56 @@
       <div><span class="case-meta-label">Type</span><div class="case-meta-value">Personal Project</div></div>
     </div>
 
+    <!-- CONTEXT -->
     <div class="case-section">
-      <h2>About</h2>
-      <p>Taskland transforms everyday tasks into RPG battles. Users face monsters they defeat by completing real-world tasks. Each task deals damage, streaks unlock multipliers, and achievements reward consistency.</p>
-      <p>Born from a simple frustration: task managers are boring. Taskland makes productivity feel like an adventure.</p>
+      <h2>Context</h2>
+      <p>Productivity apps have a retention problem. Users download a task manager, create a few tasks, and abandon it within a week. The reason is simple: there's no emotional reward for completing work. A checkmark isn't enough to build a habit.</p>
+      <p>I noticed this pattern in my own life. Every to-do app I tried felt like a chore on top of chores. The tools that actually kept me engaged were games — they had progress bars, rewards, and a sense of "just one more level." That gap between boring productivity tools and engaging game mechanics was the starting point for Taskland.</p>
     </div>
 
     <div class="case-divider"></div>
 
+    <!-- PROCESS -->
     <div class="case-section">
       <h2>Process</h2>
+      <p>With that context, I approached this as a product problem, not a feature list. The question wasn't "what features should a task manager have?" but "how do I make someone want to come back tomorrow?"</p>
       <div class="case-trail">
         <div class="trail-step">
           <div class="trail-marker"></div>
-          <div class="trail-step-title">Research</div>
-          <div class="trail-step-desc">Studied gamification in Habitica, Forest, Duolingo. Identified what keeps users engaged vs what creates friction.</div>
+          <div class="trail-step-title">Research & Benchmarking</div>
+          <div class="trail-step-desc">Analyzed gamification patterns in Habitica, Forest, and Duolingo. Mapped what drives daily retention (streaks, visual progress, narrative) vs what creates friction (complex RPG systems, social pressure, too many settings).</div>
         </div>
         <div class="trail-step">
           <div class="trail-marker"></div>
-          <div class="trail-step-title">Design System</div>
-          <div class="trail-step-desc">Built a pixel-art token system — colors, typography (Press Start 2P + VT323), spacing, and reusable components.</div>
+          <div class="trail-step-title">Defining the Core Loop</div>
+          <div class="trail-step-desc">Designed the fundamental cycle: create task → pick difficulty → complete → deal damage to monster → defeat monster → earn XP → level up. Every interaction feeds back into this loop. If it doesn't serve the loop, it doesn't ship.</div>
         </div>
         <div class="trail-step">
           <div class="trail-marker"></div>
-          <div class="trail-step-title">Game Engine</div>
-          <div class="trail-step-desc">Designed the task → damage → defeat → XP → level up loop. Balanced difficulty multipliers across hundreds of monsters.</div>
+          <div class="trail-step-title">Design System & Visual Identity</div>
+          <div class="trail-step-desc">Chose pixel art deliberately — it signals "this is a game, not a spreadsheet." Built a complete token system (colors, typography with Press Start 2P + VT323, spacing) and reusable components (RpgButton, PixelCard, PageShell) to guarantee consistency across 30+ screens.</div>
         </div>
         <div class="trail-step">
           <div class="trail-marker"></div>
-          <div class="trail-step-title">Implementation</div>
-          <div class="trail-step-desc">React + TypeScript with Vite. Real-time Supabase sync, floating damage animations, responsive mobile/desktop.</div>
-        </div>
-        <div class="trail-step">
-          <div class="trail-marker"></div>
-          <div class="trail-step-title">Launch</div>
-          <div class="trail-step-desc">250+ token violations fixed, EN localization, email auth with verification, product page for public release.</div>
+          <div class="trail-step-title">Build & Iterate</div>
+          <div class="trail-step-desc">React + TypeScript with Vite for the frontend. Supabase for auth, real-time sync, and cloud persistence. Built the game engine (XP curves, damage formulas, monster generation) and balanced it across hundreds of encounters. Shipped, tested with real users, iterated.</div>
         </div>
       </div>
     </div>
 
     <div class="case-divider"></div>
 
+    <!-- SOLUTION -->
     <div class="case-section">
-      <h2>Highlights</h2>
+      <h2>Solution</h2>
+      <p>Taskland is the result of that process. A task manager where productivity feels like progress, not obligation.</p>
       <ul>
-        <li>30+ custom components with design token conformance</li>
-        <li>Real-time cloud sync across devices</li>
-        <li>Custom game engine with XP curves and monster generation</li>
-        <li>3-click task creation — zero friction</li>
-        <li>Notion-style tag system with filter dropdowns</li>
-        <li>Email verification and password reset flow</li>
+        <li><strong>Campaign mode</strong> — tasks grouped into missions against monsters. Completing tasks deals damage. Defeating monsters earns XP. There's always a next fight.</li>
+        <li><strong>3-click task creation</strong> — type name, pick difficulty, Enter. No friction. No required fields for tags, dates, or categories.</li>
+        <li><strong>Habits as power multipliers</strong> — daily habits (exercise, reading, meditation) permanently boost your character's damage. Real-life consistency = in-game power.</li>
+        <li><strong>Achievement system</strong> — Bronze through Legendary tiers reward milestones with permanent damage bonuses. Long-term users feel tangibly stronger.</li>
+        <li><strong>Cross-device cloud sync</strong> — real-time Supabase sync means you can start on desktop and continue on mobile without losing progress.</li>
+        <li><strong>Notion-style tags</strong> — flexible organization with multi-select tags and filter dropdowns, without cluttering the creation flow.</li>
       </ul>
     </div>
 
