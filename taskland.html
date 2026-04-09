@@ -16,7 +16,7 @@
       justify-content: center;
       position: relative;
       z-index: 1;
-      background: linear-gradient(180deg, #0b0d1e 0%, #15182d 50%, var(--bg) 100%);
+      background: var(--bg);
     }
 
     .case-hero-inner {
@@ -34,7 +34,7 @@
     .case-tagline {
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: var(--text-secondary);
       max-width: 420px;
       line-height: 1.7;
     }
@@ -73,13 +73,13 @@
 
     .case-link-secondary {
       background: transparent;
-      color: rgba(255, 255, 255, 0.7);
-      border: 1.5px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-secondary);
+      border: 1.5px solid var(--border-hover);
     }
 
     .case-link-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.45);
-      color: #fff;
+      border-color: var(--text-primary);
+      color: var(--text-primary);
     }
 
     .back-link {
