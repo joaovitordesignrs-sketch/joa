@@ -146,6 +146,31 @@ function drawDots() {
 }
 drawDots();
 
+// ===================== MAGNETIC BUTTONS =====================
+const magneticElements = document.querySelectorAll(
+  '.lang-toggle, .side-nav-item, .profile-links a, .contact-links a, .contact-email, .project-card, .highlight-card, .case-link, .back-link'
+);
+
+magneticElements.forEach((el) => {
+  const strength = el.classList.contains('side-nav-item') ? 0.4 : 0.3;
+  const threshold = 80; // px distance to start attracting
+
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const dx = e.clientX - centerX;
+    const dy = e.clientY - centerY;
+    el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+    el.style.transition = 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'translate(0, 0)';
+    el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+  });
+});
+
 // ===================== CARD TILT =====================
 const card = document.getElementById('card');
 

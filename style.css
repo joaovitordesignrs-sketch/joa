@@ -122,7 +122,7 @@ body {
   transition: opacity 0.3s ease;
 }
 
-a, button, .profile-card, .timeline-card, .skill-card, .project-card, .highlight-card, .side-nav-item {
+a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project-card, .highlight-card, .highlight-card *, .side-nav-item {
   cursor: none;
 }
 
@@ -480,24 +480,53 @@ a, button, .profile-card, .timeline-card, .skill-card, .project-card, .highlight
 .profile-links a {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.7rem;
-  border-radius: 8px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.8);
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 500;
   transition: all 0.25s ease;
 }
 
 .profile-links a:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  transform: scale(1.12);
+}
+
+.profile-links a[aria-label="GitHub"]:hover {
+  background: rgba(0, 0, 0, 0.75);
+  border-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+.profile-links a[aria-label="LinkedIn"]:hover {
+  background: rgba(10, 102, 194, 0.85);
+  border-color: rgba(10, 102, 194, 0.95);
+  color: #fff;
+}
+
+.profile-links a[aria-label="Email"]:hover {
+  background: rgba(59, 130, 246, 0.8);
+  border-color: rgba(59, 130, 246, 0.9);
+  color: #fff;
+}
+
+.profile-links a[aria-label="WhatsApp"]:hover {
+  background: rgba(37, 211, 102, 0.8);
+  border-color: rgba(37, 211, 102, 0.9);
   color: #fff;
 }
 
 .profile-links a svg {
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
 }
 
 /* ===================== HIGHLIGHTS ===================== */
