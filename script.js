@@ -174,20 +174,22 @@ magneticElements.forEach((el) => {
 // ===================== CARD TILT =====================
 const card = document.getElementById('card');
 
-card.addEventListener('mousemove', (e) => {
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  const rotateX = ((y - centerY) / centerY) * -8;
-  const rotateY = ((x - centerX) / centerX) * 8;
-  card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
+if (card) {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 8;
+    const rotateY = ((x - centerX) / centerX) * -8;
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
 
-card.addEventListener('mouseleave', () => {
-  card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
-});
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0)';
+  });
+}
 
 // ===================== FLOATING CARDS PARALLAX =====================
 const floatCards = document.querySelectorAll('.float-card');
@@ -224,7 +226,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 revealElements.forEach((el) => {
-  const parent = el.closest('.skills-grid') || el.closest('.timeline') || el.closest('.highlights-grid');
+  const parent = el.closest('.skills-grid') || el.closest('.timeline') || el.closest('.highlights-grid') || el.closest('.masonry');
   if (parent) {
     const siblings = parent.querySelectorAll('.parallax-fade');
     const index = Array.from(siblings).indexOf(el);
