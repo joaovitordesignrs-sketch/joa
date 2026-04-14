@@ -112,6 +112,11 @@ const translations = {
     'pf.07.p2': 'A habilidade mais valiosa que desenvolvi aqui foi a de questionar a hipótese óbvia — e buscar, nos dados comportamentais, a distinção entre o que o usuário faz e o que ele sente. Essa separação é onde o design de produto começa a se tornar estratégico.',
     'pf.07.quote': '"A distinção entre o que o usuário faz e o que ele sente — é onde o design de produto se torna estratégico."',
     'pf.07.caption': 'O principal aprendizado',
+    'case.11.number': '11 — Acessibilidade Mobile',
+    'case.11.title': 'Um web app que cabe no bolso',
+    'case.11.p1': 'O Taskland foi construído como aplicação web — mas isso não significa que deveria funcionar apenas no desktop. Desde o início, cada decisão de interface foi tomada com design responsivo em mente, garantindo que a experiência completa se traduza naturalmente para a tela de um smartphone.',
+    'case.11.p2': 'O sistema de batalha, tracking de hábitos, achievements e gestão de tarefas funcionam no mobile sem compromissos. Os alvos de toque foram dimensionados para polegares, não cursores. O pixel art escala perfeitamente em qualquer resolução. E por ser um web app pronto para PWA, não existe barreira de App Store — o usuário abre um link e começa a jogar imediatamente.',
+    'case.11.p3': 'Essa foi uma decisão deliberada de acessibilidade: o produto deve encontrar o usuário onde ele está. Se alguém quer marcar uma tarefa no metrô ou derrotar um monstro no intervalo, a experiência deve parecer nativa — não um site desktop espremido numa tela pequena.',
     'highlights.personalfit.desc': 'Redesign de fluxo de avaliação que reduziu churn de 30% para menos de 4%. Case study completo.',
     'projects.personalfit.desc': 'Product Design & UX Research · 2022–2023',
     // ===== Moovz Case Study =====
@@ -348,6 +353,11 @@ const translations = {
     'pf.07.p2': 'The most valuable skill I developed here was questioning the obvious hypothesis — and looking in behavioral data for the distinction between what the user does and what the user feels. That separation is where product design starts to become truly strategic.',
     'pf.07.quote': '"The distinction between what the user does and what the user feels — that\'s where product design becomes strategic."',
     'pf.07.caption': 'The key takeaway',
+    'case.11.number': '11 — Mobile Accessibility',
+    'case.11.title': 'A web app that fits in your pocket',
+    'case.11.p1': 'Taskland was built as a web application — but that doesn\'t mean it should only work on desktop. From the beginning, every interface decision was made with responsive design in mind, ensuring the full experience translates naturally to a smartphone screen.',
+    'case.11.p2': 'The battle system, habit tracking, achievements, and task management all work on mobile with no compromises. Touch targets were sized for thumbs, not cursors. The pixel art scales cleanly at any resolution. And because it\'s a PWA-ready web app, there\'s no App Store barrier — the user opens a link and starts playing immediately.',
+    'case.11.p3': 'This was a deliberate accessibility decision: the product should meet the user where they are. If someone wants to check off a task while commuting or defeat a monster during a break, the experience should feel native — not like a desktop site crammed into a small screen.',
     'highlights.personalfit.desc': 'Review flow redesign that reduced churn from 30% to less than 4%. Full case study.',
     'projects.personalfit.desc': 'Product Design & UX Research · 2022–2023',
     // ===== Moovz Case Study =====

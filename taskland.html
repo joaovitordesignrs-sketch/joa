@@ -399,6 +399,10 @@
       color: var(--text-muted);
     }
 
+    /* Mobile screenshot presentation */
+    .ed-media-mobile { margin: 2rem 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 2rem; display: flex; justify-content: center; }
+    .ed-media-mobile img { width: 260px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08); display: block; }
+
     /* ===================== RESPONSIVE ===================== */
     @media (max-width: 768px) {
       .case-logo { width: 180px; }
@@ -410,6 +414,8 @@
       .ed-split { grid-template-columns: 1fr; gap: 1.25rem; }
       .ed-stats { grid-template-columns: repeat(2, 1fr); }
       .ed-media { margin: 1.25rem 0; }
+      .ed-media-mobile { margin: 1.25rem 0; padding: 1.25rem; }
+      .ed-media-mobile img { width: 200px; }
       .ed-highlight { margin: 1.25rem 0; }
       .case-meta-row { gap: 1.25rem; }
     }
@@ -607,9 +613,21 @@
       </div>
     </div>
 
-    <!-- 11 — Learnings -->
+    <!-- 11 — Mobile Accessibility -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">11 — Learnings</span>
+      <span class="ed-number" data-i18n="case.11.number">11 — Mobile Accessibility</span>
+      <h2 class="ed-title" data-i18n="case.11.title">A web app that fits in your pocket</h2>
+      <p class="ed-text" data-i18n="case.11.p1">Taskland was built as a web application — but that doesn't mean it should only work on desktop. From the beginning, every interface decision was made with responsive design in mind, ensuring the full experience translates naturally to a smartphone screen.</p>
+      <p class="ed-text" data-i18n="case.11.p2">The battle system, habit tracking, achievements, and task management all work on mobile with no compromises. Touch targets were sized for thumbs, not cursors. The pixel art scales cleanly at any resolution. And because it's a PWA-ready web app, there's no App Store barrier — the user opens a link and starts playing immediately.</p>
+      <p class="ed-text" data-i18n="case.11.p3">This was a deliberate accessibility decision: the product should meet the user where they are. If someone wants to check off a task while commuting or defeat a monster during a break, the experience should feel native — not like a desktop site crammed into a small screen.</p>
+      <div class="ed-media-mobile">
+        <img src="Images/taskland_smartphone_app.png" alt="Taskland running on a smartphone" />
+      </div>
+    </div>
+
+    <!-- 12 — Learnings -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">12 — Learnings</span>
       <h2 class="ed-title">Building alone, end to end, forces a clarity that teamwork rarely demands</h2>
       <p class="ed-text">Building a product from scratch, alone, end to end — research, sprite, animation, interface, code — is an exercise that forces a clarity of vision that teamwork rarely demands. When you're the only one responsible for everything, you can't transfer a decision to anyone.</p>
       <p class="ed-text">The biggest learning was simple: the entry barrier is the enemy of motivation. V1 was mechanically interesting but asked for commitment before delivering value. Removing that friction and letting the reward loop happen immediately transformed the experience completely.</p>

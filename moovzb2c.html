@@ -61,6 +61,18 @@
 
     .case-footer { position: relative; z-index: 1; text-align: center; padding: 2rem; font-size: 0.72rem; color: var(--text-muted); }
 
+    /* Mobile screenshot presentation */
+    .ed-media-mobile { margin: 2rem 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 2rem; display: flex; justify-content: center; }
+    .ed-media-mobile img { width: 260px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08); display: block; }
+
+    /* Side-by-side mobile screenshots */
+    .ed-media-pair { margin: 2rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .ed-media-pair-item { border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); padding: 1.5rem; display: flex; flex-direction: column; align-items: center; }
+    .ed-media-pair-item img { width: 200px; border-radius: 20px; box-shadow: 0 16px 48px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06); display: block; }
+    .ed-media-pair-caption { padding: 1rem 0.5rem 0; text-align: center; }
+    .ed-media-pair-caption .ed-media-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .ed-media-pair-caption p { font-size: 0.75rem; line-height: 1.5; color: var(--text-secondary); }
+
     /* Zone colors for heart rate */
     .zone-bar { display: flex; border-radius: 12px; overflow: hidden; margin: 1.5rem 0; height: 48px; }
     .zone-bar-segment { flex: 1; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600; color: #fff; transition: flex 0.3s ease; }
@@ -81,6 +93,11 @@
       .ed-split { grid-template-columns: 1fr; gap: 1.25rem; }
       .ed-stats { grid-template-columns: repeat(2, 1fr); }
       .ed-media { margin: 1.25rem 0; }
+      .ed-media-mobile { margin: 1.25rem 0; padding: 1.25rem; }
+      .ed-media-mobile img { width: 200px; }
+      .ed-media-pair { grid-template-columns: 1fr; gap: 1rem; margin: 1.25rem 0; }
+      .ed-media-pair-item { padding: 1.25rem; }
+      .ed-media-pair-item img { width: 180px; }
       .ed-highlight { margin: 1.25rem 0; }
       .case-meta-row { gap: 1.25rem; }
     }
@@ -166,12 +183,8 @@
         <li><strong data-i18n="mzb2c.03.ble.title">BLE + Heart Rate GATT</strong> — <span data-i18n="mzb2c.03.ble.desc">Universal standard protocol. No per-manufacturer SDK. One integration covers dozens of brands.</span></li>
         <li><strong data-i18n="mzb2c.03.fallback.title">No-Wearable Fallback</strong> — <span data-i18n="mzb2c.03.fallback.desc">For users without a wearable, the app maintains full workout functionality. Points are calculated from task difficulty, duration and exercises completed — no second-class experience.</span></li>
       </ul>
-      <div class="ed-media">
+      <div class="ed-media-mobile">
         <img src="Images/moovzb2c_connecting_watch.png" alt="Wearable pairing flow" />
-        <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="mzb2c.03.media.label">Wearable Pairing</p>
-          <p data-i18n="mzb2c.03.media.desc">The Bluetooth connection flow — device search, discovered devices list, and connection confirmation. Clarity and simplicity are critical here.</p>
-        </div>
       </div>
     </div>
 
@@ -195,18 +208,20 @@
         <h3>Octalysis Framework — Yu-kai Chou</h3>
         <p data-i18n="mzb2c.04.highlight.p">This mechanism simultaneously activates two of the eight core drives: Development & Accomplishment (seeing points grow in real time) and Reward Unpredictability (never knowing exactly how many points you'll earn based on the day's effort). The Peak-End Rule (Kahneman) amplifies the effect: the moment of greatest effort coincides with maximum point accumulation, creating a positive memory associated with peak performance.</p>
       </div>
-      <div class="ed-media">
-        <img src="Images/moovzb2c_smartwatch_image.png" alt="Real-time workout screen with heart rate zones" />
-        <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="mzb2c.04.media1.label">Real-Time Workout</p>
-          <p data-i18n="mzb2c.04.media1.desc">The main screen during class: heart rate highlighted, current training zone with corresponding color, points accumulating in real time, and the current exercise.</p>
+      <div class="ed-media-pair">
+        <div class="ed-media-pair-item">
+          <img src="Images/moovzb2c_smartwatch_image.png" alt="Real-time workout screen with heart rate zones" />
+          <div class="ed-media-pair-caption">
+            <p class="ed-media-label" data-i18n="mzb2c.04.media1.label">Real-Time Workout</p>
+            <p data-i18n="mzb2c.04.media1.desc">Heart rate, training zone, and points accumulating in real time.</p>
+          </div>
         </div>
-      </div>
-      <div class="ed-media">
-        <img src="Images/moovzb2c_Tela de finalizar aula.png" alt="Post-workout summary screen" />
-        <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="mzb2c.04.media2.label">Post-Workout Summary</p>
-          <p data-i18n="mzb2c.04.media2.desc">Total time, points earned, predominant heart rate zone, and comparison with previous workouts. The post-workout moment is when user satisfaction peaks — it needs to celebrate effort with clarity.</p>
+        <div class="ed-media-pair-item">
+          <img src="Images/moovzb2c_Tela de finalizar aula.png" alt="Post-workout summary screen" />
+          <div class="ed-media-pair-caption">
+            <p class="ed-media-label" data-i18n="mzb2c.04.media2.label">Post-Workout Summary</p>
+            <p data-i18n="mzb2c.04.media2.desc">Points earned, predominant zone, and comparison with previous workouts.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -230,12 +245,8 @@
         <li><strong data-i18n="mzb2c.05.scarcity.title">Scarcity & Exclusivity (Cialdini)</strong> — <span data-i18n="mzb2c.05.scarcity.desc">A medal available only to beta participants in a specific period can never be obtained again. This transforms a digital badge into a status symbol — exactly like Discord's "Early Supporter" badge or subscription products' "Founder" crown.</span></li>
         <li><strong data-i18n="mzb2c.05.progress.title">Endowed Progress Effect (Nunes & Dreze, 2006)</strong> — <span data-i18n="mzb2c.05.progress.desc">By entering the beta with a special achievement already in their profile, users start with a sense of advancement — increasing the likelihood of continued engagement to complete the remaining achievements.</span></li>
       </ul>
-      <div class="ed-media">
+      <div class="ed-media-mobile">
         <img src="Images/moovzb2c_achievment_beta_testing.png" alt="Beta Tester medal design and achievements screen" />
-        <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="mzb2c.05.media.label">Beta Tester Achievement</p>
-          <p data-i18n="mzb2c.05.media.desc">The exclusive medal with special rarity indication and the message that it won't be available after the beta period. Scarcity needs to be visible in the interface.</p>
-        </div>
       </div>
     </div>
 
