@@ -1066,6 +1066,14 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
     display: none;
   }
 
+  .section-inner {
+    padding: 4rem 20px;
+  }
+
+  .highlights-section {
+    padding: 2rem 20px 4rem;
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1090,6 +1098,11 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   .hero-tagline {
     font-size: 0.95rem;
   }
+
+  .lang-toggle {
+    top: 1rem;
+    right: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1103,7 +1116,7 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   }
 
   .profile-card {
-    width: calc(100vw - 3rem);
+    width: calc(100vw - 40px);
     max-width: 340px;
     height: 440px;
   }
@@ -1120,6 +1133,14 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   }
 
   .section-inner {
-    padding: 4rem 1.25rem;
+    padding: 4rem 20px;
+  }
+
+  .highlights-section {
+    padding: 2rem 20px 4rem;
+  }
+
+  .site-footer {
+    padding: 3rem 20px 2rem;
   }
 }
