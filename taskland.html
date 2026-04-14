@@ -115,20 +115,31 @@
       font-weight: 500;
       text-decoration: none;
       border-radius: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      color: var(--text-secondary);
+      background: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text-primary);
       transition: all 0.25s ease;
       cursor: none;
     }
 
     .case-link:hover { transform: scale(1.12); }
 
+    .case-link-primary {
+      background: rgba(59, 130, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.2);
+      color: #3B82F6;
+    }
+
     .case-link-primary:hover {
       background: rgba(59, 130, 246, 0.8);
       border-color: rgba(59, 130, 246, 0.9);
       color: #fff;
       box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+    }
+
+    .case-link-secondary {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.15);
     }
 
     .case-link-secondary:hover {
@@ -422,11 +433,12 @@
   <section class="case-hero">
     <div class="case-hero-inner">
       <img src="Images/taskland-logo.png" alt="Taskland" class="case-logo" />
-      <p class="case-tagline" data-i18n="case.tagline">A gamified task manager that turns your to-do list into an RPG adventure.</p>
+      <p class="case-tagline">A task manager that grows with you — where productivity feels like leveling up.</p>
       <div class="case-meta-row">
-        <div class="case-meta-item"><span class="case-meta-label">Role</span><div class="case-meta-value">Product Designer & Dev</div></div>
-        <div class="case-meta-item"><span class="case-meta-label">Timeline</span><div class="case-meta-value">2025 — Present</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Role</span><div class="case-meta-value">Designer · Developer</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Year</span><div class="case-meta-value">2026</div></div>
         <div class="case-meta-item"><span class="case-meta-label">Stack</span><div class="case-meta-value">React · TS · Supabase</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Type</span><div class="case-meta-value">Build to Learn</div></div>
       </div>
       <div class="case-links">
         <a href="https://tasklandofficial.vercel.app" target="_blank" rel="noopener" class="case-link case-link-primary">Try Taskland</a>
@@ -438,109 +450,152 @@
   <!-- ==================== EDITORIAL CONTENT ==================== -->
   <div class="ed">
 
-    <!-- 01 — Origin -->
+    <!-- 01 — Context & Motivation -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">01 — Origin</span>
-      <h2 class="ed-title" data-i18n="case.01.title">Breaking out of procrastination to build something with soul</h2>
-      <p class="ed-text" data-i18n="case.01.p1">After a period of creative stagnation, I went back to studying, experimenting, and really putting in the work on something entirely my own — like I hadn't done in a long time.</p>
-      <p class="ed-text" data-i18n="case.01.p2">The goal was clear from day one: go against the tide of generic, soulless apps mass-produced with AI. Bring personality back to the digital landscape.</p>
+      <span class="ed-number">01 — Context & Motivation</span>
+      <h2 class="ed-title">I always needed a task manager — none kept me motivated</h2>
+      <p class="ed-text">I've used everything — Notion, Todoist, Things, TickTick. They worked. But none kept me motivated for long. They became just another place where I listed things I didn't do rather than a real tool.</p>
+      <p class="ed-text">So I stopped and thought: what if I build my own? Not as a UI exercise, but as a complete product — with research, game mechanics, animation, and code. A place where every task I complete makes something actually happen.</p>
     </div>
 
-    <!-- Video — Rive -->
+    <!-- 02 — Market Research -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">02 — The Spark</span>
-      <h2 class="ed-title" data-i18n="case.02.title">Where childhood meets adulthood</h2>
-      <p class="ed-text" data-i18n="case.02.p">Using Rive to animate character sprites gave me the idea to truly gamify my tasks. It became a meeting point between little João Vitor — who always loved RPGs — and my adult working life.</p>
+      <span class="ed-number">02 — Market Research</span>
+      <h2 class="ed-title">The gap nobody was filling</h2>
+      <p class="ed-text">Before drawing any screen, I spent time analyzing what existed. The market split clearly into two groups.</p>
+      <p class="ed-text">On one side, functional task managers — clean, efficient, no personality. On the other, gamification attempts — points, badges, mechanical streaks that had clearly been glued on top of an existing product with no coherence to what the user was actually doing.</p>
+      <p class="ed-text">What I was looking for didn't exist yet: a product where character progression made emotional sense. Where completing a hard task weighed more than completing an easy one. Where the user felt they were actually getting stronger, not just accumulating arbitrary numbers.</p>
+      <p class="ed-text">From a theoretical standpoint, the market was exploiting only external rewards. The <a href="https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/" target="_blank" rel="noopener">Octalysis Framework</a> by Yu-kai Chou describes eight core engagement drives — and most gamified productivity apps exploited only one or two. The deepest ones — Epic Meaning, Creative Empowerment, Reward Unpredictability — were practically untouched.</p>
+      <div class="ed-highlight">
+        <h3>Octalysis Framework — Yu-kai Chou</h3>
+        <p>The market ignored the most powerful engagement drives: Development & Accomplishment, Creative Empowerment, and Epic Meaning. Most gamified apps exploited only points and badges — extrinsic rewards without intrinsic motivation anchoring.</p>
+      </div>
+    </div>
+
+    <!-- 03 — Visual Universe -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">03 — Visual Universe</span>
+      <h2 class="ed-title">Pixel art isn't nostalgia — it's precision</h2>
+      <p class="ed-text">The choice of pixel art wasn't nostalgia. It was precision.</p>
+      <p class="ed-text">Pixel art carries a specific cultural weight for the generation that grew up with video games. It communicates authenticity — every pixel is a manual decision. And it allows enormous expressiveness with limited resources, which was perfect for a solo project where I needed to animate the characters myself.</p>
+      <p class="ed-text">The process was sequential by necessity: first static sprites, to define proportions, palette, and personality for each character. Then manual animation — idle and attack — frame by frame.</p>
+      <p class="ed-text">The animation wasn't aesthetic detail. It was functional. There's a concept in <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">flow theory</a> called immediate feedback — the idea that deep engagement depends on seeing the result of your actions in real time. A character that reacts when you complete a task is a much more visceral feedback than a text notification.</p>
       <div class="ed-media">
         <video autoplay loop muted playsinline>
           <source src="Videos/taskland-rive.mp4" type="video/mp4">
         </video>
         <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="case.02.media.label">The 7-second animation</p>
-          <p data-i18n="case.02.media.desc">The Rive character sprite that started it all — where the idea of gamifying tasks first came to life.</p>
+          <p class="ed-media-label">Character Sprite Animation</p>
+          <p>Hand-crafted pixel art sprites animated in Rive — idle and attack cycles that bring the RPG world to life.</p>
+        </div>
+      </div>
+      <div class="ed-media">
+        <video autoplay loop muted playsinline>
+          <source src="Videos/taskland-attack.mp4" type="video/mp4">
+        </video>
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Attack Animation</p>
+          <p>The attack cycle in detail — every frame designed to communicate reactivity and reward.</p>
         </div>
       </div>
     </div>
 
-    <!-- Quote -->
-    <div class="ed-quote parallax-fade">
-      <p class="ed-quote-text" data-i18n="case.quote1">"A meeting point between little João Vitor, who always loved RPGs, and my adult working life."</p>
-      <p class="ed-quote-caption" data-i18n="case.quote1.caption">The emotional core behind every design decision</p>
+    <!-- 04 — Mechanics v1 -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">04 — Mechanics v1</span>
+      <h2 class="ed-title">What 10 user tests revealed about the first version</h2>
+      <p class="ed-text">In the first version, the mechanic worked like this: the user created their monster, defined how many tasks they'd do, and the monster scaled in strength accordingly. It seemed logical. It created upfront commitment.</p>
+      <p class="ed-text">After testing with 10 users, the problem became obvious. Before seeing any product value, the user needed to make a configuration decision. It was unnecessary friction at the wrong moment.</p>
+      <p class="ed-text"><a href="https://behaviormodel.org/" target="_blank" rel="noopener">BJ Fogg's Behavior Model</a> explains well why this fails: for an action to happen, motivation, ability, and prompt must align at the same moment. Putting a setup decision at the beginning dissolved both motivation and perceived ability before the user experienced any reward.</p>
+      <p class="ed-text">In game design language: the reward loop was too late.</p>
+      <div class="ed-highlight">
+        <h3>BJ Fogg's Behavior Model</h3>
+        <p>For a behavior to happen, Motivation, Ability and Prompt must align at the same moment. Asking for a setup decision during onboarding reduces perceived ability and dissolves motivation before the user experiences any reward. The reward loop was too late.</p>
+      </div>
     </div>
 
-    <!-- 03 — Personal Journey -->
+    <!-- 05 — Mechanics v2 -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">03 — A Personal Journey</span>
-      <h2 class="ed-title" data-i18n="case.03.title">I found myself again, doing what I love</h2>
-      <p class="ed-text" data-i18n="case.03.p1">Taskland became deeply personal. Every detail mattered — from the core concept and emotional design down to each micro-interaction and the underlying code.</p>
-      <p class="ed-text" data-i18n="case.03.p2">This wasn't just a side project. It was proof that I could own the full product experience, end to end.</p>
-    </div>
-
-    <!-- 04 — The Rebuild -->
-    <div class="ed-section parallax-fade">
-      <span class="ed-number">04 — The Hard Lesson</span>
-      <h2 class="ed-title" data-i18n="case.04.title">AI can make things look good. Testing reveals the truth.</h2>
-      <p class="ed-text" data-i18n="case.04.p1">The first version looked polished and even functional. But rigorous testing revealed critical weaknesses under real-world conditions.</p>
-      <p class="ed-text" data-i18n="case.04.p2">I rebuilt Taskland from scratch — this time with a clear architectural foundation, proper data architecture, and a comprehensive plan in hand. No shortcuts.</p>
+      <span class="ed-number">05 — Mechanics v2</span>
+      <h2 class="ed-title">Less friction, same depth</h2>
+      <p class="ed-text">The change was surgical. Monsters are now always present — no prior configuration needed. The user enters, sees the monster, completes a task, deals damage. The reward loop happens within the first 60 seconds of use.</p>
+      <p class="ed-text">The system's depth wasn't lost — it was revealed progressively. As the user advances, monsters get stronger, the multiplier system opens up, achievements appear. This is the principle of <a href="https://www.nngroup.com/articles/progressive-disclosure/" target="_blank" rel="noopener">Progressive Disclosure</a> in practice: not hiding complexity, but not requiring it before the user is ready.</p>
       <div class="ed-split">
         <div class="ed-split-item">
-          <h4 data-i18n="case.04.arch">Architecture First</h4>
-          <p data-i18n="case.04.arch.desc">Clear separation of concerns, proper data modeling, and a plan before writing a single line of code.</p>
+          <h4>v1 — Setup First</h4>
+          <p>Create monster → Define task count → Start tasks → Eventually see reward. Too many steps before value.</p>
         </div>
         <div class="ed-split-item">
-          <h4 data-i18n="case.04.rive">Rive Animations</h4>
-          <p data-i18n="case.04.rive.desc">Hand-crafted sprite animations — not generated, designed with intention to bring the RPG world to life.</p>
-        </div>
-        <div class="ed-split-item">
-          <h4 data-i18n="case.04.loop">Core Game Loop</h4>
-          <p data-i18n="case.04.loop.desc">Create task → pick difficulty → complete → deal damage → defeat monster → earn XP → level up.</p>
-        </div>
-        <div class="ed-split-item">
-          <h4 data-i18n="case.04.test">Stress Testing</h4>
-          <p data-i18n="case.04.test.desc">Every feature tested under real conditions. The rebuild yielded tangible improvements in reliability.</p>
+          <h4>v2 — Value First</h4>
+          <p>See monster → Complete task → Deal damage → Instant reward. Progressive Disclosure handles the rest.</p>
         </div>
       </div>
     </div>
 
-    <!-- Quote -->
-    <div class="ed-quote parallax-fade">
-      <p class="ed-quote-text" data-i18n="case.quote2">"AI can help you create something that looks good. But without solid fundamentals, it crumbles under testing."</p>
-      <p class="ed-quote-caption" data-i18n="case.quote2.caption">The lesson that forced a complete rebuild</p>
+    <!-- Video — Battle -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">06 — The Core Loop</span>
+      <h2 class="ed-title">Complete tasks. Deal damage. Defeat monsters.</h2>
+      <p class="ed-text">This is the heart of Taskland — every completed task deals damage to a monster. The harder the task, the bigger the hit. Defeat the monster, earn XP, level up, and face the next one.</p>
+      <div class="ed-media">
+        <video autoplay loop muted playsinline>
+          <source src="Videos/taskland-battle.mp4" type="video/mp4">
+        </video>
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Battle System</p>
+          <p>The RPG battle in action — tasks become attacks, and every completion brings you closer to victory.</p>
+        </div>
+      </div>
     </div>
 
-    <!-- 05 — The Product -->
+    <!-- 07 — Multiplier System -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">05 — The Product</span>
-      <h2 class="ed-title" data-i18n="case.05.title">Combining retro games with real productivity</h2>
+      <span class="ed-number">07 — Multiplier System</span>
+      <h2 class="ed-title">Four vectors that amplify every action</h2>
+      <p class="ed-text">This is the part I'm most proud of in Taskland. The damage a character deals to a monster isn't fixed — it depends on the task difficulty plus a multiplier that comes from four different sources.</p>
       <ul class="ed-features">
-        <li data-i18n-html="case.05.f1"><strong>Campaign mode</strong> — tasks become missions against monsters. Completing tasks deals damage. There's always a next fight.</li>
-        <li data-i18n-html="case.05.f2"><strong>3-click task creation</strong> — type name, pick difficulty, Enter. Zero friction.</li>
-        <li data-i18n-html="case.05.f3"><strong>Habits as power multipliers</strong> — real-life consistency translates directly into in-game power.</li>
-        <li data-i18n-html="case.05.f4"><strong>Achievement system</strong> — Bronze through Legendary tiers with permanent damage bonuses.</li>
-        <li data-i18n-html="case.05.f5"><strong>Cross-device cloud sync</strong> — Supabase real-time sync across desktop and mobile.</li>
+        <li><strong>Items</strong> — drops and equipment the character accumulates throughout the journey.</li>
+        <li><strong>Character Level</strong> — direct progression through accumulated experience.</li>
+        <li><strong>Achievements</strong> — each unlocked achievement grants a permanent multiplier proportional to its rarity. The rarity design uses <a href="https://en.wikipedia.org/wiki/Reinforcement#Schedules_of_reinforcement" target="_blank" rel="noopener">Variable Ratio Reinforcement (Skinner)</a> — the unpredictability of the reward sustains long-term engagement.</li>
+        <li><strong>Habits</strong> — each active habit grants a multiplier that scales with consecutive days of maintenance. Based on <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ejsp.674" target="_blank" rel="noopener">Phillippa Lally's research (UCL, 2010)</a>: habits take an average of 66 days to become automatic. The multiplier grows non-linearly, with jumps at 21, 40, and 66-day milestones.</li>
       </ul>
     </div>
 
-    <!-- Video — Product -->
+    <!-- Video — Habits -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">06 — In Action</span>
-      <h2 class="ed-title" data-i18n="case.06.title">See it in motion</h2>
+      <span class="ed-number">08 — Habits in Action</span>
+      <h2 class="ed-title">Real-life consistency becomes in-game power</h2>
+      <div class="ed-media">
+        <video autoplay loop muted playsinline>
+          <source src="Videos/taskland-habits.mp4" type="video/mp4">
+        </video>
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Habit System</p>
+          <p>Active habits with streak tracking and damage multipliers — the longer you maintain a habit, the stronger your character becomes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video — Product overview -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">09 — The Full Product</span>
+      <h2 class="ed-title">See it all in motion</h2>
       <div class="ed-media">
         <video autoplay loop muted playsinline>
           <source src="Videos/taskland-product.mp4" type="video/mp4">
         </video>
         <div class="ed-media-caption">
-          <p class="ed-media-label" data-i18n="case.06.media.label">Product Walkthrough</p>
-          <p data-i18n="case.06.media.desc">Taskland's interface — where retro RPG aesthetics meet real productivity workflows.</p>
+          <p class="ed-media-label">Product Walkthrough</p>
+          <p>Taskland's complete interface — where retro RPG aesthetics meet real productivity workflows.</p>
         </div>
       </div>
     </div>
 
-    <!-- 07 — Performance -->
+    <!-- 10 — Performance -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">07 — Performance</span>
-      <h2 class="ed-title" data-i18n="case.07.title">100 on Lighthouse. No compromises.</h2>
-      <p class="ed-text" data-i18n="case.07.p">A gamified retro interface doesn't mean slow software. Pixel art and engineering discipline can coexist.</p>
+      <span class="ed-number">10 — Performance</span>
+      <h2 class="ed-title">100 on Lighthouse. No compromises.</h2>
+      <p class="ed-text">A gamified retro interface doesn't mean slow software. Pixel art and engineering discipline can coexist.</p>
       <div class="ed-stats">
         <div class="ed-stat"><div class="ed-stat-value">100</div><div class="ed-stat-label">Performance</div></div>
         <div class="ed-stat"><div class="ed-stat-value">91</div><div class="ed-stat-label">Accessibility</div></div>
@@ -552,24 +607,18 @@
       </div>
     </div>
 
-    <!-- 08 — Beta -->
+    <!-- 11 — Learnings -->
     <div class="ed-section parallax-fade">
-      <span class="ed-number">08 — Beta & Community</span>
-      <h2 class="ed-title" data-i18n="case.08.title">Built in public, tested by real people</h2>
-      <p class="ed-text" data-i18n="case.08.p1">Launched the beta publicly, seeking honest feedback. The response validated the core idea — testers described it as "highly intuitive and practical for everyday use" and said it transforms daily work into an adventure-like experience.</p>
-      <p class="ed-text" data-i18n="case.08.p2">Every bug report and suggestion from the community shaped the product into something real people actually want to use.</p>
-      <div class="ed-highlight">
-        <h3 data-i18n="case.08.feedback.title">Tester feedback</h3>
-        <p data-i18n="case.08.feedback.text">"It proves to be highly intuitive and practical for everyday use — it transforms work tasks into an adventure-like experience, making daily work more engaging."</p>
-      </div>
+      <span class="ed-number">11 — Learnings</span>
+      <h2 class="ed-title">Building alone, end to end, forces a clarity that teamwork rarely demands</h2>
+      <p class="ed-text">Building a product from scratch, alone, end to end — research, sprite, animation, interface, code — is an exercise that forces a clarity of vision that teamwork rarely demands. When you're the only one responsible for everything, you can't transfer a decision to anyone.</p>
+      <p class="ed-text">The biggest learning was simple: the entry barrier is the enemy of motivation. V1 was mechanically interesting but asked for commitment before delivering value. Removing that friction and letting the reward loop happen immediately transformed the experience completely.</p>
     </div>
 
-    <!-- 09 — Result -->
-    <div class="ed-section parallax-fade">
-      <span class="ed-number">09 — The Result</span>
-      <h2 class="ed-title" data-i18n="case.09.title">Not just a task manager — a personal statement</h2>
-      <p class="ed-text" data-i18n="case.09.p1">Taskland is proof that products can have soul. That one person can own design, code, and vision. That going against the tide of generic AI-generated apps is not only possible — it's necessary.</p>
-      <p class="ed-text" data-i18n="case.09.p2">Users don't just manage tasks. They fight monsters, level up, and build a character that reflects their real-world consistency.</p>
+    <!-- Closing quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text">"The entry barrier is the enemy of motivation. Remove the friction, let the reward loop happen immediately."</p>
+      <p class="ed-quote-caption">The biggest personal takeaway</p>
     </div>
 
   </div>

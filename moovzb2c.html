@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moovz B2C — Case Study | João Vitor Ramos</title>
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .back-link { position: fixed; top: 2rem; left: 2rem; z-index: 100; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-hover); border-radius: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600; color: var(--text-primary); text-decoration: none; transition: all 0.3s; cursor: none; }
+    .back-link:hover { border-color: var(--text-primary); transform: scale(1.08); }
+
+    .case-hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+    .case-hero-inner { max-width: 640px; padding: 6rem 2rem 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .case-hero-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text-primary); line-height: 1.15; }
+    .case-hero-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; }
+    .case-tagline { font-family: 'Inter', sans-serif; font-size: 1.05rem; color: var(--text-secondary); max-width: 480px; line-height: 1.7; }
+    .case-meta-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+    .case-meta-item { text-align: center; }
+    .case-meta-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .case-meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text-primary); margin-top: 0.15rem; }
+
+    .ed { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+    .ed-section { padding: 2rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 20px; transition: all 0.3s ease; }
+    .ed-section:hover { border-color: var(--border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+    .ed-number { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #3B82F6; margin-bottom: 1rem; display: block; }
+    .ed-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--text-primary); line-height: 1.25; margin-bottom: 1.25rem; }
+    .ed-text { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 1rem; }
+    .ed-text:last-child { margin-bottom: 0; }
+
+    .ed-quote { padding: 2.5rem 2rem; margin-bottom: 1.25rem; text-align: center; background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 20px; }
+    .ed-quote-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--text-primary); line-height: 1.45; font-style: italic; max-width: 520px; margin: 0 auto; }
+    .ed-quote-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; }
+
+    .ed-media { margin: 2rem 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .ed-media video, .ed-media img { width: 100%; display: block; }
+    .ed-media-caption { padding: 1.25rem 1.5rem; }
+    .ed-media-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.35rem; }
+    .ed-media-caption p { font-size: 0.82rem; line-height: 1.6; color: var(--text-secondary); }
+
+    .ed-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+    .ed-split-item h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; }
+    .ed-split-item p { font-size: 0.82rem; line-height: 1.7; color: var(--text-muted); }
+
+    .ed-features { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 1rem; }
+    .ed-features li { padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; font-size: 0.85rem; line-height: 1.7; color: var(--text-secondary); transition: all 0.3s ease; cursor: none; }
+    .ed-features li:hover { border-color: var(--border-hover); box-shadow: 0 8px 24px rgba(0,0,0,0.04); transform: translateX(4px); }
+    .ed-features li strong { font-family: 'Space Grotesk', sans-serif; color: var(--text-primary); }
+
+    .ed-highlight { margin: 2rem 0; padding: 2rem; background: linear-gradient(135deg, #0b0d1e 0%, #15182d 100%); border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); }
+    .ed-highlight h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem; }
+    .ed-highlight p { font-size: 0.85rem; line-height: 1.75; color: rgba(255,255,255,0.5); }
+
+    .ed-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 16px; }
+    .ed-stat { text-align: center; }
+    .ed-stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #3B82F6; line-height: 1; }
+    .ed-stat-label { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.35rem; font-weight: 500; }
+
+    .case-footer { position: relative; z-index: 1; text-align: center; padding: 2rem; font-size: 0.72rem; color: var(--text-muted); }
+
+    /* Zone colors for heart rate */
+    .zone-bar { display: flex; border-radius: 12px; overflow: hidden; margin: 1.5rem 0; height: 48px; }
+    .zone-bar-segment { flex: 1; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 0.7rem; font-weight: 600; color: #fff; transition: flex 0.3s ease; }
+    .zone-bar-segment:hover { flex: 1.5; }
+    .zone-1 { background: #94a3b8; }
+    .zone-2 { background: #3b82f6; }
+    .zone-3 { background: #22c55e; }
+    .zone-4 { background: #f59e0b; }
+    .zone-5 { background: #ef4444; }
+
+    @media (max-width: 768px) {
+      .case-hero-inner { padding: 5rem 1.5rem 2rem; }
+      .case-hero { min-height: 60vh; }
+      .case-hero-title { font-size: 1.8rem; }
+      .ed { padding: 0 1.5rem; }
+      .ed-title { font-size: 1.4rem; }
+      .ed-quote-text { font-size: 1.1rem; }
+      .ed-split { grid-template-columns: 1fr; gap: 1.25rem; }
+      .ed-stats { grid-template-columns: repeat(2, 1fr); }
+      .ed-media { margin: 1.25rem 0; }
+      .ed-highlight { margin: 1.25rem 0; }
+      .case-meta-row { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="dotGrid"></canvas>
+
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-option active" data-lang="pt">PT</span>
+    <span class="lang-divider">/</span>
+    <span class="lang-option" data-lang="en">EN</span>
+  </button>
+
+  <a href="index.html" class="back-link">&#8592; Back</a>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="case-hero">
+    <div class="case-hero-inner">
+      <p class="case-hero-subtitle">Case Study</p>
+      <h1 class="case-hero-title">Moovz B2C</h1>
+      <p class="case-tagline" data-i18n="mzb2c.tagline">Taking the workout experience to the smartphone — with real-time wearable integration and biometric gamification.</p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><span class="case-meta-label" data-i18n="mzb2c.meta.role">Role</span><div class="case-meta-value">Product Designer · Scrum Master</div></div>
+        <div class="case-meta-item"><span class="case-meta-label" data-i18n="mzb2c.meta.year">Year</span><div class="case-meta-value">2025</div></div>
+        <div class="case-meta-item"><span class="case-meta-label" data-i18n="mzb2c.meta.team">Team</span><div class="case-meta-value">1 Designer + 2 Devs</div></div>
+        <div class="case-meta-item"><span class="case-meta-label" data-i18n="mzb2c.meta.type">Type</span><div class="case-meta-value">B2C Mobile + Wearable</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDITORIAL CONTENT ==================== -->
+  <div class="ed">
+
+    <!-- 01 — Context -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.01.number">01 — Context</span>
+      <h2 class="ed-title" data-i18n="mzb2c.01.title">Your workout, your wearable</h2>
+      <p class="ed-text" data-i18n="mzb2c.01.p1">After structuring the B2B side of Moovz, the next step was ambitious: bring that entire experience directly to the end user's smartphone. And connect it with the wearable they already use every day.</p>
+      <p class="ed-text" data-i18n="mzb2c.01.p2">In a team of three — me as designer and Scrum Master, plus two devs — the challenge was to design and deliver a new flow that read heart rate in real time and turned it into points within the gamification system Moovz already had.</p>
+    </div>
+
+    <!-- 02 — The Problem -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.02.number">02 — The Problem</span>
+      <h2 class="ed-title" data-i18n="mzb2c.02.title">The real problem: you need to buy yet another device</h2>
+      <p class="ed-text" data-i18n="mzb2c.02.p1">Today, to use Moovz's heart rate system, the user needs a specific heart rate monitor. This creates an entry barrier that goes against everything the product should be.</p>
+      <p class="ed-text" data-i18n="mzb2c.02.p2">And the most frustrating part is that it's not a hard technical problem to solve. It's a product decision — and it was excluding a huge base of users who already have a smartwatch on their wrist.</p>
+      <p class="ed-text" data-i18n="mzb2c.02.p3">This pattern exists across the entire fitness tech market. <a href="https://www.orangetheory.com/en-us/heart-rate-monitor" target="_blank" rel="noopener">OrangeTheory requires the proprietary OTbeat</a> for the Splat Points system. <a href="https://www.myzone.org/myzone-switch" target="_blank" rel="noopener">MyZone only works with the MZ belt</a>. Even <a href="https://support.apple.com/en-us/108896" target="_blank" rel="noopener">Apple Fitness+ excludes everyone without an Apple Watch</a>. These are products that ask users to invest in hardware before knowing if the product is worth it.</p>
+      <p class="ed-text" data-i18n="mzb2c.02.p4"><a href="https://blog.strava.com/press/strava-hits-100-million-athlete-milestone/" target="_blank" rel="noopener">Strava took the opposite path</a> — connects with virtually any available GPS and wearable device — and that was decisive in becoming the world's largest social fitness platform with over 100 million users. Protocol openness isn't a technical detail. It's a growth strategy.</p>
+      <div class="ed-highlight">
+        <h3 data-i18n="mzb2c.02.highlight.title">The guiding question</h3>
+        <p data-i18n="mzb2c.02.highlight.p">Why should the user buy new hardware if they already have a smartwatch on their wrist? Removing this barrier isn't just a technical decision — it's a business decision about who you want to grow with.</p>
+      </div>
+      <div class="ed-split">
+        <div class="ed-split-item">
+          <h4 data-i18n="mzb2c.02.closed">Closed Hardware</h4>
+          <p data-i18n="mzb2c.02.closed.desc">OrangeTheory, MyZone, Apple Fitness+ — proprietary devices required. High entry barrier, limited addressable market.</p>
+        </div>
+        <div class="ed-split-item">
+          <h4 data-i18n="mzb2c.02.open">Open Hardware</h4>
+          <p data-i18n="mzb2c.02.open.desc">Strava, Moovz B2C — any BLE-compatible wearable. No barrier, maximum reach, growth-first approach.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mzb2c.quote1">"Why should the user buy new hardware if they already have a smartwatch on their wrist?"</p>
+      <p class="ed-quote-caption" data-i18n="mzb2c.quote1.caption">The question that guided every technical and product decision</p>
+    </div>
+
+    <!-- 03 — Technical Solution -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.03.number">03 — Technical Solution</span>
+      <h2 class="ed-title" data-i18n="mzb2c.03.title">BLE with Heart Rate GATT profile</h2>
+      <p class="ed-text" data-i18n="mzb2c.03.p1">The connectivity strategy was designed to cover the widest possible number of devices without creating manufacturer-specific integrations — which would be unfeasible in a three-person team.</p>
+      <p class="ed-text" data-i18n="mzb2c.03.p2"><a href="https://www.bluetooth.com/specifications/specs/heart-rate-profile-1-0/" target="_blank" rel="noopener">Bluetooth Low Energy (BLE) with the Heart Rate GATT profile</a> (standardized by the Bluetooth SIG) is natively supported by the vast majority of modern wearables: Apple Watch, Samsung Galaxy Watch, Polar, Wahoo, Garmin (BLE models), Xiaomi Mi Band, Fitbit, and virtually any contemporary chest strap. One protocol, massive coverage.</p>
+      <p class="ed-text" data-i18n="mzb2c.03.p3">For users without any wearable, the app maintains all functionality — points are calculated by other parameters like task difficulty and duration. No second-class experience.</p>
+      <ul class="ed-features">
+        <li><strong data-i18n="mzb2c.03.ble.title">BLE + Heart Rate GATT</strong> — <span data-i18n="mzb2c.03.ble.desc">Universal standard protocol. No per-manufacturer SDK. One integration covers dozens of brands.</span></li>
+        <li><strong data-i18n="mzb2c.03.fallback.title">No-Wearable Fallback</strong> — <span data-i18n="mzb2c.03.fallback.desc">For users without a wearable, the app maintains full workout functionality. Points are calculated from task difficulty, duration and exercises completed — no second-class experience.</span></li>
+      </ul>
+      <div class="ed-media">
+        <img src="Images/moovzb2c_connecting_watch.png" alt="Wearable pairing flow" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label" data-i18n="mzb2c.03.media.label">Wearable Pairing</p>
+          <p data-i18n="mzb2c.03.media.desc">The Bluetooth connection flow — device search, discovered devices list, and connection confirmation. Clarity and simplicity are critical here.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 — Gamification -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.04.number">04 — Gamification</span>
+      <h2 class="ed-title" data-i18n="mzb2c.04.title">Points that reflect biometric effort</h2>
+      <p class="ed-text" data-i18n="mzb2c.04.p1">With heart rate available in real time, the scoring system gained a new dimension. Biometric effort became part of the calculation.</p>
+      <p class="ed-text" data-i18n="mzb2c.04.p2">The system uses the <a href="https://www.ntnu.edu/cerg/hrmax" target="_blank" rel="noopener">5 Heart Rate Zones based on the Karvonen Method</a> — each zone represents a different intensity level. Training in higher zones for longer generates more points. This creates a direct incentive to push harder during class, without needing any verbal instruction.</p>
+      <p class="ed-text" data-i18n="mzb2c.04.p3">It's the same principle behind <a href="https://www.orangetheory.com/en-us/heart-rate-technology" target="_blank" rel="noopener">OrangeTheory's Splat Points</a> — one of the most cited factors by users as the reason to come back. The difference is that on Moovz, it works with the wearable the user already has.</p>
+      <p class="ed-text" data-i18n="mzb2c.04.p4">From a gamification standpoint, this mechanism activates two <a href="https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/" target="_blank" rel="noopener">Octalysis Framework</a> drivers simultaneously: Development & Accomplishment (seeing points grow in real time) and Reward Unpredictability (never knowing exactly how many points you'll end up with based on the day's effort).</p>
+      <p class="ed-text" data-i18n="mzb2c.04.p5">The visibility of points growing during peak effort also applies <a href="https://thedecisionlab.com/biases/peak-end-rule" target="_blank" rel="noopener">Kahneman's Peak-End Rule</a>: the hardest moment of class coincides with maximum point accumulation, creating a positive memory associated with peak performance.</p>
+      <div class="zone-bar">
+        <div class="zone-bar-segment zone-1">Z1<br>1x</div>
+        <div class="zone-bar-segment zone-2">Z2<br>1.5x</div>
+        <div class="zone-bar-segment zone-3">Z3<br>2x</div>
+        <div class="zone-bar-segment zone-4">Z4<br>3x</div>
+        <div class="zone-bar-segment zone-5">Z5<br>4x</div>
+      </div>
+      <div class="ed-highlight">
+        <h3>Octalysis Framework — Yu-kai Chou</h3>
+        <p data-i18n="mzb2c.04.highlight.p">This mechanism simultaneously activates two of the eight core drives: Development & Accomplishment (seeing points grow in real time) and Reward Unpredictability (never knowing exactly how many points you'll earn based on the day's effort). The Peak-End Rule (Kahneman) amplifies the effect: the moment of greatest effort coincides with maximum point accumulation, creating a positive memory associated with peak performance.</p>
+      </div>
+      <div class="ed-media">
+        <img src="Images/moovzb2c_smartwatch_image.png" alt="Real-time workout screen with heart rate zones" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label" data-i18n="mzb2c.04.media1.label">Real-Time Workout</p>
+          <p data-i18n="mzb2c.04.media1.desc">The main screen during class: heart rate highlighted, current training zone with corresponding color, points accumulating in real time, and the current exercise.</p>
+        </div>
+      </div>
+      <div class="ed-media">
+        <img src="Images/moovzb2c_Tela de finalizar aula.png" alt="Post-workout summary screen" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label" data-i18n="mzb2c.04.media2.label">Post-Workout Summary</p>
+          <p data-i18n="mzb2c.04.media2.desc">Total time, points earned, predominant heart rate zone, and comparison with previous workouts. The post-workout moment is when user satisfaction peaks — it needs to celebrate effort with clarity.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mzb2c.quote2">"The wearable the user already owns is the most powerful growth lever a fitness product can have."</p>
+      <p class="ed-quote-caption" data-i18n="mzb2c.quote2.caption">Hardware accessibility as growth strategy</p>
+    </div>
+
+    <!-- 05 — Beta Strategy -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.05.number">05 — Beta Strategy</span>
+      <h2 class="ed-title" data-i18n="mzb2c.05.title">The Beta Tester medal</h2>
+      <p class="ed-text" data-i18n="mzb2c.05.p1">To launch the wearable integration feature, we designed an engagement strategy that used Moovz's own achievement system as the channel.</p>
+      <p class="ed-text" data-i18n="mzb2c.05.p2">Users invited to test the new feature would receive an exclusive Beta Tester medal — added to the achievement system with special rarity and a permanent damage multiplier as reward. After the beta period, this medal would no longer be available to anyone.</p>
+      <p class="ed-text" data-i18n="mzb2c.05.p3">The logic is direct: <a href="https://www.influenceatwork.com/7-principles-of-persuasion/" target="_blank" rel="noopener">Scarcity & Exclusivity (Cialdini, Influence)</a> — a badge available only to those who participated in the beta during a specific period becomes a status symbol within the community. It's the same mechanism behind Discord's "Early Supporter" badge or subscription products' "Founder" seal.</p>
+      <p class="ed-text" data-i18n="mzb2c.05.p4">Additionally, entering the beta with a special achievement already in their profile creates what <a href="https://journals.sagepub.com/doi/10.1016/j.jcps.2006.01.002" target="_blank" rel="noopener">Nunes & Dreze called the Endowed Progress Effect in 2006</a>: starting with some progress already guaranteed increases the likelihood of continued engagement to complete the rest.</p>
+      <p class="ed-text" data-i18n="mzb2c.05.p5">In practice, the strategy also served as a qualified feedback collection channel. Beta testers motivated by an exclusive reward tend to report problems more carefully and use the product more frequently — generating much richer data than any generic form ever would.</p>
+      <ul class="ed-features">
+        <li><strong data-i18n="mzb2c.05.scarcity.title">Scarcity & Exclusivity (Cialdini)</strong> — <span data-i18n="mzb2c.05.scarcity.desc">A medal available only to beta participants in a specific period can never be obtained again. This transforms a digital badge into a status symbol — exactly like Discord's "Early Supporter" badge or subscription products' "Founder" crown.</span></li>
+        <li><strong data-i18n="mzb2c.05.progress.title">Endowed Progress Effect (Nunes & Dreze, 2006)</strong> — <span data-i18n="mzb2c.05.progress.desc">By entering the beta with a special achievement already in their profile, users start with a sense of advancement — increasing the likelihood of continued engagement to complete the remaining achievements.</span></li>
+      </ul>
+      <div class="ed-media">
+        <img src="Images/moovzb2c_achievment_beta_testing.png" alt="Beta Tester medal design and achievements screen" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label" data-i18n="mzb2c.05.media.label">Beta Tester Achievement</p>
+          <p data-i18n="mzb2c.05.media.desc">The exclusive medal with special rarity indication and the message that it won't be available after the beta period. Scarcity needs to be visible in the interface.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 — Product Video -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.06.number">06 — The Product</span>
+      <h2 class="ed-title" data-i18n="mzb2c.06.title">See it all in motion</h2>
+      <div class="ed-media">
+        <video autoplay loop muted playsinline>
+          <source src="Videos/moovzb2c_video.mov" type="video/mp4">
+        </video>
+        <div class="ed-media-caption">
+          <p class="ed-media-label" data-i18n="mzb2c.06.media.label">Product Walkthrough</p>
+          <p data-i18n="mzb2c.06.media.desc">The complete Moovz B2C experience — from wearable pairing to real-time workout tracking and post-session summary.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 — Scrum Master -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.07.number">07 — Scrum Master</span>
+      <h2 class="ed-title" data-i18n="mzb2c.07.title">Scrum Master in a three-person team</h2>
+      <p class="ed-text" data-i18n="mzb2c.07.p1">In a small team, Scrum Master isn't a ceremony facilitator. It's the person who ensures three people are always aligned on the same priority, that technical blockers surface early before becoming delays, and that delivery rhythm is sustainable.</p>
+      <p class="ed-text" data-i18n="mzb2c.07.p2">The main process decision was adopting one-week sprints with quick reviews. This allowed validating BLE integration with different devices incrementally — finding incompatibilities week by week instead of discovering everything at the end.</p>
+    </div>
+
+    <!-- 08 — Learnings -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number" data-i18n="mzb2c.08.number">08 — Learnings</span>
+      <h2 class="ed-title" data-i18n="mzb2c.08.title">Hardware accessibility is a business decision disguised as a technical one</h2>
+      <p class="ed-text" data-i18n="mzb2c.08.p1">This project reinforced that hardware accessibility is a business decision disguised as a technical one. Requiring a specific device doesn't just create an entry barrier — it creates a trust barrier. The user needs to invest money before knowing if the product is worth it.</p>
+      <p class="ed-text" data-i18n="mzb2c.08.p2">Removing that barrier was the highest strategic impact decision of the project. It wasn't the most technically complex — it was the one that required the most careful product reading.</p>
+    </div>
+
+    <!-- Closing quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mzb2c.08.quote">"Removing the hardware barrier was the highest strategic impact decision. Not the most complex — but the one requiring the most careful product reading."</p>
+      <p class="ed-quote-caption" data-i18n="mzb2c.08.caption">The reality of product decisions</p>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <section class="section section-contact" id="contact" style="position: relative; z-index: 1;">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title parallax-fade" data-i18n="contact.title">Let's talk?</h2>
+      <a href="mailto:joaovitordesign.rs@gmail.com" class="contact-email parallax-fade">joaovitordesign.rs@gmail.com</a>
+      <div class="contact-links parallax-fade">
+        <a href="https://wa.me/5562981929917" target="_blank" rel="noopener">WhatsApp</a>
+        <span class="contact-sep">/</span>
+        <a href="https://www.linkedin.com/in/joaovitor-design/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="contact-sep">/</span>
+        <a href="https://github.com/joaovitordesignrs-sketch" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="case-footer">
+    <p>&copy; 2026 João Vitor Ramos. All rights reserved.</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

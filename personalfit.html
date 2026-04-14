@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Fit — Case Study | João Vitor Ramos</title>
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== BACK LINK ===================== */
+    .back-link {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 100;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 0.85rem;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-hover);
+      border-radius: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: none;
+    }
+
+    .back-link:hover {
+      border-color: var(--text-primary);
+      transform: scale(1.08);
+    }
+
+    /* ===================== HERO ===================== */
+    .case-hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .case-hero-inner {
+      max-width: 640px;
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .case-hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .case-hero-subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .case-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .case-meta-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .case-meta-item { text-align: center; }
+
+    .case-meta-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .case-meta-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 0.15rem;
+    }
+
+    .case-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .case-link-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 1.25rem;
+      font-family: 'Space Grotesk', sans-serif;
+      text-decoration: none;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--text-primary);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: none;
+    }
+
+    .case-link-store:hover {
+      transform: scale(1.08);
+      background: rgba(0, 0, 0, 0.8);
+      border-color: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .case-link-store svg {
+      flex-shrink: 0;
+    }
+
+    /* ===================== EDITORIAL SECTIONS ===================== */
+    .ed {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .ed-section {
+      padding: 2rem 2rem;
+      margin-bottom: 1.25rem;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .ed-section:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .ed-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #3B82F6;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .ed-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.25;
+      margin-bottom: 1.25rem;
+    }
+
+    .ed-text {
+      font-size: 0.9rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .ed-text:last-child { margin-bottom: 0; }
+
+    .ed-quote {
+      padding: 2.5rem 2rem;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+    }
+
+    .ed-quote-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.45;
+      font-style: italic;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .ed-quote-caption {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    .ed-media {
+      margin: 2rem 0;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .ed-media video,
+    .ed-media img {
+      width: 100%;
+      display: block;
+    }
+
+    .ed-media-caption {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .ed-media-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .ed-media-caption p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    .ed-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .ed-split-item h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .ed-split-item p {
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .ed-features {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ed-features li {
+      padding: 1.25rem 1.5rem;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      transition: all 0.3s ease;
+      cursor: none;
+    }
+
+    .ed-features li:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      transform: translateX(4px);
+    }
+
+    .ed-features li strong {
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--text-primary);
+    }
+
+    .ed-highlight {
+      margin: 2rem 0;
+      padding: 2rem 2rem;
+      background: linear-gradient(135deg, #0b0d1e 0%, #15182d 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .ed-highlight h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.6rem;
+    }
+
+    .ed-highlight p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .ed-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .ed-stat { text-align: center; }
+
+    .ed-stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3B82F6;
+      line-height: 1;
+    }
+
+    .ed-stat-label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      font-weight: 500;
+    }
+
+    /* ===================== DASHBOARD ===================== */
+    .dashboard {
+      margin: 2rem 0;
+      padding: 1.75rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .dashboard:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .dashboard-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .dashboard-badge {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      background: rgba(239, 68, 68, 0.08);
+      color: #EF4444;
+      letter-spacing: 0.05em;
+    }
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .dash-card {
+      padding: 1.25rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .dash-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .dash-card-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .dash-card-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .dash-card-value.danger { color: #EF4444; }
+    .dash-card-value.warning { color: #F59E0B; }
+
+    .dash-card-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Bar chart */
+    .dash-bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 48px;
+      margin-top: 0.75rem;
+    }
+
+    .dash-bar {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      min-height: 4px;
+    }
+
+    /* Stars */
+    .dash-stars {
+      display: flex;
+      gap: 3px;
+      margin-top: 0.35rem;
+    }
+
+    .dash-star {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+    }
+
+    .dash-star.filled { background: #F59E0B; }
+    .dash-star.empty { background: rgba(0, 0, 0, 0.06); }
+
+    /* Review items */
+    .dash-reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+
+    .dash-review {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      background: rgba(0, 0, 0, 0.02);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .dash-review-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      flex-shrink: 0;
+    }
+
+    .dash-review-text {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .dash-review-stars {
+      display: flex;
+      gap: 2px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .dash-review-star {
+      width: 8px;
+      height: 8px;
+      border-radius: 1px;
+    }
+
+    .dash-review-star.filled { background: #EF4444; }
+    .dash-review-star.empty { background: rgba(0, 0, 0, 0.06); }
+
+    @media (max-width: 768px) {
+      .dashboard-grid { grid-template-columns: 1fr; }
+    }
+
+    .case-footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 768px) {
+      .case-hero-inner { padding: 5rem 1.5rem 2rem; }
+      .case-hero { min-height: 60vh; }
+      .case-hero-title { font-size: 1.8rem; }
+      .ed { padding: 0 1.5rem; }
+      .ed-title { font-size: 1.4rem; }
+      .ed-quote-text { font-size: 1.1rem; }
+      .ed-split { grid-template-columns: 1fr; gap: 1.25rem; }
+      .ed-stats { grid-template-columns: repeat(2, 1fr); }
+      .ed-media { margin: 1.25rem 0; }
+      .ed-highlight { margin: 1.25rem 0; }
+      .case-meta-row { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="dotGrid"></canvas>
+
+  <!-- Lang toggle -->
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-option active" data-lang="pt">PT</span>
+    <span class="lang-divider">/</span>
+    <span class="lang-option" data-lang="en">EN</span>
+  </button>
+
+  <a href="index.html" class="back-link">&#8592; Back</a>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="case-hero">
+    <div class="case-hero-inner">
+      <p class="case-hero-subtitle">Case Study</p>
+      <h1 class="case-hero-title">Personal Fit</h1>
+      <p class="case-tagline" data-i18n="pf.tagline">Rebuilding user trust and reducing churn from 30% to less than 4% per month.</p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><span class="case-meta-label">Role</span><div class="case-meta-value">Product Designer · UX Researcher</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Timeline</span><div class="case-meta-value">2022 — 2023</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Impact</span><div class="case-meta-value">Churn 30% → 4%</div></div>
+      </div>
+      <div class="case-links">
+        <a href="https://apps.apple.com/br/app/personal-fit/id1510016290" target="_blank" rel="noopener" class="case-link case-link-store" aria-label="App Store">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span>App Store</span>
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=br.com.personalfitapp&hl=pt_BR" target="_blank" rel="noopener" class="case-link case-link-store" aria-label="Google Play">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 0 1 0 1.38l-2.302 2.302L15.396 13l2.302-2.492zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/></svg>
+          <span>Google Play</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDITORIAL CONTENT ==================== -->
+  <div class="ed">
+
+    <!-- 01 — Context -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">01 — Context</span>
+      <h2 class="ed-title" data-i18n="pf.01.title">A startup, zero references, and total ownership</h2>
+      <p class="ed-text" data-i18n="pf.01.p1">When I joined Personal Fit, I had just been promoted to mid-level. And then they threw me into a startup taking its first steps, as the sole product designer. No internal references, nobody to review decisions, no established process. It was scary and liberating at the same time.</p>
+      <p class="ed-text" data-i18n="pf.01.p2">This case is about a problem I took a while to name correctly. At first it seemed like a bug. Then it seemed like a communication problem. Only when I actually cross-referenced the data did it become clear what was happening.</p>
+    </div>
+
+    <!-- 02 — The Problem -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">02 — The Problem</span>
+      <h2 class="ed-title" data-i18n="pf.02.title">30% churn, 1-star ratings, and a product perceived as broken</h2>
+      <p class="ed-text" data-i18n="pf.02.p1">The app had 30% monthly churn. Play Store and App Store ratings regularly hit 1 star. And the most frustrating part: the product had already gone through a complete refactor. New engineering, new design system, new flows. We'd done our homework — but the numbers wouldn't improve.</p>
+      <p class="ed-text" data-i18n="pf.02.p2">The internal narrative was "there are still bugs." And fine, bugs exist. But something didn't add up.</p>
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <span class="dashboard-title">Personal Fit — Metrics Dashboard</span>
+          <span class="dashboard-badge">Critical</span>
+        </div>
+        <div class="dashboard-grid">
+          <!-- Churn -->
+          <div class="dash-card">
+            <div class="dash-card-label">Monthly Churn Rate</div>
+            <div class="dash-card-value danger">30%</div>
+            <div class="dash-card-sub">users leaving per month</div>
+            <div class="dash-bar-chart">
+              <div class="dash-bar" style="height: 20%; background: rgba(239,68,68,0.3);"></div>
+              <div class="dash-bar" style="height: 35%; background: rgba(239,68,68,0.4);"></div>
+              <div class="dash-bar" style="height: 45%; background: rgba(239,68,68,0.5);"></div>
+              <div class="dash-bar" style="height: 55%; background: rgba(239,68,68,0.5);"></div>
+              <div class="dash-bar" style="height: 60%; background: rgba(239,68,68,0.6);"></div>
+              <div class="dash-bar" style="height: 72%; background: rgba(239,68,68,0.7);"></div>
+              <div class="dash-bar" style="height: 80%; background: rgba(239,68,68,0.7);"></div>
+              <div class="dash-bar" style="height: 85%; background: rgba(239,68,68,0.8);"></div>
+              <div class="dash-bar" style="height: 90%; background: rgba(239,68,68,0.85);"></div>
+              <div class="dash-bar" style="height: 95%; background: rgba(239,68,68,0.9);"></div>
+              <div class="dash-bar" style="height: 100%; background: #EF4444;"></div>
+              <div class="dash-bar" style="height: 100%; background: #EF4444;"></div>
+            </div>
+          </div>
+          <!-- Store Rating -->
+          <div class="dash-card">
+            <div class="dash-card-label">Store Rating</div>
+            <div class="dash-card-value warning">1.0 <span style="font-size: 0.7rem; color: var(--text-muted);">/ 5.0</span></div>
+            <div class="dash-stars">
+              <div class="dash-star filled"></div>
+              <div class="dash-star empty"></div>
+              <div class="dash-star empty"></div>
+              <div class="dash-star empty"></div>
+              <div class="dash-star empty"></div>
+            </div>
+            <div class="dash-reviews">
+              <div class="dash-review">
+                <div class="dash-review-avatar"></div>
+                <div class="dash-review-text">"App keeps crashing, nothing works..."</div>
+                <div class="dash-review-stars">
+                  <div class="dash-review-star filled"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                </div>
+              </div>
+              <div class="dash-review">
+                <div class="dash-review-avatar"></div>
+                <div class="dash-review-text">"Same bugs as before, waste of time"</div>
+                <div class="dash-review-stars">
+                  <div class="dash-review-star filled"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                </div>
+              </div>
+              <div class="dash-review">
+                <div class="dash-review-avatar"></div>
+                <div class="dash-review-text">"Uninstalled. Don't trust this app anymore"</div>
+                <div class="dash-review-stars">
+                  <div class="dash-review-star filled"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                  <div class="dash-review-star empty"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Refactored product -->
+          <div class="dash-card">
+            <div class="dash-card-label">Product Status</div>
+            <div class="dash-card-value" style="color: #22C55E;">100%</div>
+            <div class="dash-card-sub">fully refactored — new code, new design system</div>
+          </div>
+          <!-- Paradox -->
+          <div class="dash-card">
+            <div class="dash-card-label">The Paradox</div>
+            <div class="dash-card-value" style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.4;">New product.<br>Old perception.</div>
+            <div class="dash-card-sub" style="margin-top: 0.5rem;">Users still saw the old broken app</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="pf.quote1">"Wait. If the problem were technical, both groups would be affected equally. But they weren't."</p>
+      <p class="ed-quote-caption" data-i18n="pf.quote1.caption">The insight that changed the entire approach</p>
+    </div>
+
+    <!-- 03 — Discovery -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">03 — Discovery</span>
+      <h2 class="ed-title" data-i18n="pf.03.title">What the data was actually saying</h2>
+      <p class="ed-text" data-i18n="pf.03.p1">In a cohort analysis, I cross-referenced new user behavior with old user behavior. And a pattern emerged that didn't make sense at first: new users had a significantly better experience than old users — even using the exact same refactored product.</p>
+      <p class="ed-text" data-i18n="pf.03.p2">What I realized was that old users had been so exposed to real failures in the past that they'd developed a kind of conditioned distrust. Any friction — even intentional, even correct — was interpreted as a bug. They no longer trusted the product. And this distrust was so deeply rooted that even a completely new product couldn't automatically undo it.</p>
+      <p class="ed-text" data-i18n="pf.03.p3">This has a name in psychology: <a href="https://en.wikipedia.org/wiki/Learned_helplessness" target="_blank" rel="noopener">learned helplessness</a>, originally documented by Martin Seligman in 1967. The idea is simple: when someone is repeatedly exposed to situations they can't control, they develop the expectation that things will keep going wrong — even when the environment changes.</p>
+      <p class="ed-text" data-i18n="pf.03.p4">In practice, the product violated <a href="https://www.nngroup.com/articles/ten-usability-heuristics/" target="_blank" rel="noopener">Nielsen's Heuristic #1 — Visibility of System Status</a>: there was no clear signal that this was a renewed product. For the old user, it was the same app with the same history of problems.</p>
+      <div class="ed-split">
+        <div class="ed-split-item">
+          <h4 data-i18n="pf.03.new">New Users</h4>
+          <p data-i18n="pf.03.new.desc">Positive experience, higher retention, fewer complaints. Evaluated the product based on its current state.</p>
+        </div>
+        <div class="ed-split-item">
+          <h4 data-i18n="pf.03.old">Old Users</h4>
+          <p data-i18n="pf.03.old.desc">Negative perception persisted despite fixes. Any friction was interpreted as a bug from past conditioning.</p>
+        </div>
+      </div>
+      <!-- Add image: Images/personalfit-discovery.png — Diagram of the distrust cycle or new vs old user comparison -->
+    </div>
+
+    <!-- 04 — Hypothesis -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="pf.04.quote">"If satisfied users existed but simply weren't rating — and dissatisfied users were actively rating — then the public perception problem was partly a volume problem. We needed to activate the voices that were silent."</p>
+      <p class="ed-quote-caption" data-i18n="pf.04.caption">The strategic hypothesis</p>
+    </div>
+
+    <!-- 05 — Solution -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">05 — Solution</span>
+      <h2 class="ed-title" data-i18n="pf.05.title">A review funnel with two exits</h2>
+      <p class="ed-text" data-i18n="pf.05.p">I designed a three-step strategy, simple in structure but careful in logic.</p>
+      <ul class="ed-features">
+        <li data-i18n-html="pf.05.s1"><strong>Task-based activation</strong> — the user completed a task inside the app before any review prompt. This wasn't random. The <a href="https://en.wikipedia.org/wiki/Peak%E2%80%93end_rule" target="_blank" rel="noopener">Peak-End Rule (Kahneman &amp; Tversky)</a> says people evaluate an experience mainly by its peak and end — not the average. Positioning the review prompt right after a positive moment significantly increased the chance of a favorable response.</li>
+        <li data-i18n-html="pf.05.s2"><strong>Simplified in-app rating</strong> — a 1-to-5 star rating directly in the app, no immediate store redirect. Less friction, more honesty.</li>
+        <li data-i18n-html="pf.05.s3"><strong>Sentiment bifurcation</strong> — scores of 4-5 were invited to publish that review on the store. Voluntary, no pressure. Scores of 1-3 entered a qualitative question flow instead. We turned frustration into data — and prevented it from becoming a public review.</li>
+      </ul>
+      <!-- Add image: Images/personalfit-flow.png — Funnel flowchart showing the three paths -->
+      <!-- Add image: Images/personalfit-screens.png — UI screens of the review flow -->
+    </div>
+
+    <!-- 06 — Results -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">06 — Results</span>
+      <h2 class="ed-title" data-i18n="pf.06.title">What happened after</h2>
+      <p class="ed-text" data-i18n="pf.06.p">Today, in 2026, the app has churn below 4% per month and consistently high store ratings. The same engineering and interface designed in 2022 remain in production. The user base grew.</p>
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <span class="dashboard-title">Personal Fit — Results Overview</span>
+          <span class="dashboard-badge" style="background: rgba(34,197,94,0.08); color: #22C55E;">Resolved</span>
+        </div>
+        <div class="dashboard-grid">
+          <!-- Churn Before/After -->
+          <div class="dash-card">
+            <div class="dash-card-label">Monthly Churn</div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <div>
+                <div style="font-size: 0.55rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">Before</div>
+                <div class="dash-card-value danger" style="margin-bottom: 0;">30%</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="flex-shrink: 0; opacity: 0.4;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <div>
+                <div style="font-size: 0.55rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">After</div>
+                <div class="dash-card-value" style="color: #22C55E; margin-bottom: 0;">&lt;4%</div>
+              </div>
+            </div>
+            <div class="dash-bar-chart" style="height: 40px;">
+              <div class="dash-bar" style="height: 100%; background: rgba(239,68,68,0.15);"></div>
+              <div class="dash-bar" style="height: 90%; background: rgba(239,68,68,0.12);"></div>
+              <div class="dash-bar" style="height: 75%; background: rgba(239,68,68,0.1);"></div>
+              <div class="dash-bar" style="height: 55%; background: rgba(245,158,11,0.15);"></div>
+              <div class="dash-bar" style="height: 40%; background: rgba(245,158,11,0.12);"></div>
+              <div class="dash-bar" style="height: 28%; background: rgba(34,197,94,0.12);"></div>
+              <div class="dash-bar" style="height: 18%; background: rgba(34,197,94,0.15);"></div>
+              <div class="dash-bar" style="height: 14%; background: rgba(34,197,94,0.2);"></div>
+              <div class="dash-bar" style="height: 12%; background: rgba(34,197,94,0.25);"></div>
+              <div class="dash-bar" style="height: 11%; background: rgba(34,197,94,0.3);"></div>
+              <div class="dash-bar" style="height: 10%; background: rgba(34,197,94,0.35);"></div>
+              <div class="dash-bar" style="height: 10%; background: #22C55E;"></div>
+            </div>
+          </div>
+          <!-- Rating Before/After -->
+          <div class="dash-card">
+            <div class="dash-card-label">Store Rating</div>
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <div>
+                <div style="font-size: 0.55rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">Before</div>
+                <div class="dash-card-value warning" style="margin-bottom: 0;">1.0</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1.5" style="flex-shrink: 0; opacity: 0.4;"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <div>
+                <div style="font-size: 0.55rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: 'Space Grotesk', sans-serif; font-weight: 600;">After</div>
+                <div class="dash-card-value" style="color: #22C55E; margin-bottom: 0;">4.9</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+              <div style="flex: 1;">
+                <div class="dash-stars">
+                  <div class="dash-star filled"></div>
+                  <div class="dash-star empty"></div>
+                  <div class="dash-star empty"></div>
+                  <div class="dash-star empty"></div>
+                  <div class="dash-star empty"></div>
+                </div>
+                <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 0.25rem;">2022</div>
+              </div>
+              <div style="flex: 1;">
+                <div class="dash-stars">
+                  <div class="dash-star filled"></div>
+                  <div class="dash-star filled"></div>
+                  <div class="dash-star filled"></div>
+                  <div class="dash-star filled"></div>
+                  <div class="dash-star" style="background: linear-gradient(90deg, #F59E0B 80%, rgba(0,0,0,0.06) 80%);"></div>
+                </div>
+                <div style="font-size: 0.6rem; color: var(--text-muted); margin-top: 0.25rem;">2026</div>
+              </div>
+            </div>
+          </div>
+          <!-- Active Clients -->
+          <div class="dash-card">
+            <div class="dash-card-label">Active Users</div>
+            <div class="dash-card-value" style="color: #3B82F6;">20k+</div>
+            <div class="dash-card-sub">from 1,000 users at the time of the fix</div>
+            <div class="dash-bar-chart" style="height: 36px;">
+              <div class="dash-bar" style="height: 8%; background: rgba(59,130,246,0.1);"></div>
+              <div class="dash-bar" style="height: 12%; background: rgba(59,130,246,0.12);"></div>
+              <div class="dash-bar" style="height: 20%; background: rgba(59,130,246,0.15);"></div>
+              <div class="dash-bar" style="height: 30%; background: rgba(59,130,246,0.2);"></div>
+              <div class="dash-bar" style="height: 42%; background: rgba(59,130,246,0.25);"></div>
+              <div class="dash-bar" style="height: 55%; background: rgba(59,130,246,0.3);"></div>
+              <div class="dash-bar" style="height: 65%; background: rgba(59,130,246,0.4);"></div>
+              <div class="dash-bar" style="height: 75%; background: rgba(59,130,246,0.5);"></div>
+              <div class="dash-bar" style="height: 82%; background: rgba(59,130,246,0.6);"></div>
+              <div class="dash-bar" style="height: 90%; background: rgba(59,130,246,0.7);"></div>
+              <div class="dash-bar" style="height: 95%; background: rgba(59,130,246,0.85);"></div>
+              <div class="dash-bar" style="height: 100%; background: #3B82F6;"></div>
+            </div>
+          </div>
+          <!-- Longevity -->
+          <div class="dash-card">
+            <div class="dash-card-label">Architecture Longevity</div>
+            <div class="dash-card-value" style="color: var(--text-primary);">4 yrs</div>
+            <div class="dash-card-sub">same architecture in production since 2022</div>
+            <div style="display: flex; gap: 4px; margin-top: 0.75rem;">
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: #3B82F6;"></div>
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: #3B82F6;"></div>
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: #3B82F6;"></div>
+              <div style="flex: 1; height: 6px; border-radius: 3px; background: rgba(59,130,246,0.5);"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 0.25rem;">
+              <span style="font-size: 0.55rem; color: var(--text-muted);">2022</span>
+              <span style="font-size: 0.55rem; color: var(--text-muted);">2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 — Learning -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">07 — Learning</span>
+      <h2 class="ed-title" data-i18n="pf.07.title">Metrics rarely point to the root cause</h2>
+      <p class="ed-text" data-i18n="pf.07.p1">What I learned from this project was that product metrics rarely point to the root cause. 30% churn looked like a product problem. It was a memory problem — the memory the user had of the product before, overlaid onto the product that existed now.</p>
+      <p class="ed-text" data-i18n="pf.07.p2">And that sometimes the most effective solution isn't changing the product, but changing how it's perceived.</p>
+    </div>
+
+    <!-- Closing quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="pf.07.quote">"Sometimes the most effective solution isn't changing the product, but changing how it's perceived."</p>
+      <p class="ed-quote-caption" data-i18n="pf.07.caption">The key takeaway</p>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <section class="section section-contact" id="contact" style="position: relative; z-index: 1;">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title parallax-fade" data-i18n="contact.title">Let's talk?</h2>
+      <a href="mailto:joaovitordesign.rs@gmail.com" class="contact-email parallax-fade">joaovitordesign.rs@gmail.com</a>
+      <div class="contact-links parallax-fade">
+        <a href="https://wa.me/5562981929917" target="_blank" rel="noopener">WhatsApp</a>
+        <span class="contact-sep">/</span>
+        <a href="https://www.linkedin.com/in/joaovitor-design/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="contact-sep">/</span>
+        <a href="https://github.com/joaovitordesignrs-sketch" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="case-footer">
+    <p>&copy; 2026 João Vitor Ramos. All rights reserved.</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

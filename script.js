@@ -56,15 +56,32 @@ document.addEventListener('mouseover', (e) => {
   if (el.closest(hoverTargets.link)) {
     cursor.className = 'cursor hover-link';
     cursorDot.style.opacity = '0';
-    cursorLabel.textContent = '';
+
+    const linkEl = el.closest('a, button');
+    if (linkEl) {
+      const href = linkEl.getAttribute('href') || '';
+      const label = linkEl.getAttribute('aria-label') || '';
+
+      if (linkEl.classList.contains('project-card') || linkEl.classList.contains('highlight-card')) {
+        cursorLabel.textContent = translations[currentLang]['cursor.view'];
+      } else if (href.startsWith('mailto:')) {
+        cursorLabel.textContent = translations[currentLang]['cursor.send'];
+      } else if (href.startsWith('http') || href.startsWith('https')) {
+        cursorLabel.textContent = translations[currentLang]['cursor.open'];
+      } else if (href.startsWith('#')) {
+        cursorLabel.textContent = translations[currentLang]['cursor.scroll'];
+      } else {
+        cursorLabel.textContent = '';
+      }
+    } else {
+      cursorLabel.textContent = '';
+    }
   } else if (el.closest(hoverTargets.card)) {
     cursor.className = 'cursor hover-card';
     cursorDot.style.opacity = '0';
     const cardEl = el.closest(hoverTargets.card);
-    if (cardEl.classList.contains('project-card')) {
+    if (cardEl.classList.contains('project-card') || cardEl.classList.contains('highlight-card')) {
       cursorLabel.textContent = translations[currentLang]['cursor.view'];
-    } else if (cardEl.classList.contains('profile-card')) {
-      cursorLabel.textContent = '';
     } else {
       cursorLabel.textContent = '';
     }

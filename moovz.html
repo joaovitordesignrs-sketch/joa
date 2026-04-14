@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moovz — Case Study | João Vitor Ramos</title>
+  <link rel="icon" type="image/png" href="Images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .back-link { position: fixed; top: 2rem; left: 2rem; z-index: 100; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.85rem; background: rgba(255,255,255,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border-hover); border-radius: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 0.72rem; font-weight: 600; color: var(--text-primary); text-decoration: none; transition: all 0.3s; cursor: none; }
+    .back-link:hover { border-color: var(--text-primary); transform: scale(1.08); }
+
+    .case-hero { min-height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+    .case-hero-inner { max-width: 640px; padding: 6rem 2rem 3rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    .case-hero-title { font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--text-primary); line-height: 1.15; }
+    .case-hero-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.05em; }
+    .case-tagline { font-family: 'Inter', sans-serif; font-size: 1.05rem; color: var(--text-secondary); max-width: 480px; line-height: 1.7; }
+    .case-meta-row { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-top: 0.5rem; }
+    .case-meta-item { text-align: center; }
+    .case-meta-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); }
+    .case-meta-value { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--text-primary); margin-top: 0.15rem; }
+
+    .ed { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+    .ed-section { padding: 2rem; margin-bottom: 1.25rem; background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 20px; transition: all 0.3s ease; }
+    .ed-section:hover { border-color: var(--border-hover); box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+    .ed-number { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #3B82F6; margin-bottom: 1rem; display: block; }
+    .ed-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; color: var(--text-primary); line-height: 1.25; margin-bottom: 1.25rem; }
+    .ed-text { font-size: 0.9rem; line-height: 1.85; color: var(--text-secondary); margin-bottom: 1rem; }
+    .ed-text:last-child { margin-bottom: 0; }
+
+    .ed-quote { padding: 2.5rem 2rem; margin-bottom: 1.25rem; text-align: center; background: rgba(255,255,255,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--border); border-radius: 20px; }
+    .ed-quote-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; font-weight: 600; color: var(--text-primary); line-height: 1.45; font-style: italic; max-width: 520px; margin: 0 auto; }
+    .ed-quote-caption { font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem; }
+
+    .ed-media { margin: 2rem 0; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); background: rgba(255,255,255,0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    .ed-media video, .ed-media img { width: 100%; display: block; }
+    .ed-media-caption { padding: 1.25rem 1.5rem; }
+    .ed-media-label { font-family: 'Space Grotesk', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.35rem; }
+    .ed-media-caption p { font-size: 0.82rem; line-height: 1.6; color: var(--text-secondary); }
+
+    .ed-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+    .ed-split-item h4 { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.35rem; }
+    .ed-split-item p { font-size: 0.82rem; line-height: 1.7; color: var(--text-muted); }
+
+    .ed-features { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-direction: column; gap: 1rem; }
+    .ed-features li { padding: 1.25rem 1.5rem; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; font-size: 0.85rem; line-height: 1.7; color: var(--text-secondary); transition: all 0.3s ease; cursor: none; }
+    .ed-features li:hover { border-color: var(--border-hover); box-shadow: 0 8px 24px rgba(0,0,0,0.04); transform: translateX(4px); }
+    .ed-features li strong { font-family: 'Space Grotesk', sans-serif; color: var(--text-primary); }
+
+    .ed-highlight { margin: 2rem 0; padding: 2rem; background: linear-gradient(135deg, #0b0d1e 0%, #15182d 100%); border-radius: 20px; border: 1px solid rgba(255,255,255,0.06); }
+    .ed-highlight h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; font-weight: 700; color: rgba(255,255,255,0.9); margin-bottom: 0.6rem; }
+    .ed-highlight p { font-size: 0.85rem; line-height: 1.75; color: rgba(255,255,255,0.5); }
+
+    .ed-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0; padding: 1.5rem; background: rgba(255,255,255,0.45); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 16px; }
+    .ed-stat { text-align: center; }
+    .ed-stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #3B82F6; line-height: 1; }
+    .ed-stat-label { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.35rem; font-weight: 500; }
+
+    .case-footer { position: relative; z-index: 1; text-align: center; padding: 2rem; font-size: 0.72rem; color: var(--text-muted); }
+
+    @media (max-width: 768px) {
+      .case-hero-inner { padding: 5rem 1.5rem 2rem; }
+      .case-hero { min-height: 60vh; }
+      .case-hero-title { font-size: 1.8rem; }
+      .ed { padding: 0 1.5rem; }
+      .ed-title { font-size: 1.4rem; }
+      .ed-quote-text { font-size: 1.1rem; }
+      .ed-split { grid-template-columns: 1fr; gap: 1.25rem; }
+      .ed-stats { grid-template-columns: repeat(2, 1fr); }
+      .ed-media { margin: 1.25rem 0; }
+      .ed-highlight { margin: 1.25rem 0; }
+      .case-meta-row { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"><span class="cursor-label" id="cursorLabel"></span></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <canvas id="dotGrid"></canvas>
+
+  <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+    <span class="lang-option active" data-lang="pt">PT</span>
+    <span class="lang-divider">/</span>
+    <span class="lang-option" data-lang="en">EN</span>
+  </button>
+
+  <a href="index.html" class="back-link">&#8592; Back</a>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="case-hero">
+    <div class="case-hero-inner">
+      <p class="case-hero-subtitle">Case Study</p>
+      <h1 class="case-hero-title">Moovz</h1>
+      <p class="case-tagline" data-i18n="mz.tagline">Turning small studios into high-standard gyms — with AI-powered class creation and a live workout player.</p>
+      <div class="case-meta-row">
+        <div class="case-meta-item"><span class="case-meta-label">Role</span><div class="case-meta-value">Product Designer · UX Researcher</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Year</span><div class="case-meta-value">2025</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Type</span><div class="case-meta-value">B2B2C · Web App</div></div>
+        <div class="case-meta-item"><span class="case-meta-label">Segment</span><div class="case-meta-value">FitTech</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDITORIAL CONTENT ==================== -->
+  <div class="ed">
+
+    <!-- 01 — Market Context -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">01 — Market Context</span>
+      <h2 class="ed-title" data-i18n="mz.01.title">A model that works — but only if you can afford it</h2>
+      <p class="ed-text" data-i18n="mz.01.p1">There's a business model that works really well in large gyms — structured classes, standardized experience, predictable results regardless of which instructor is in the room. F45 does this. Orange Theory does this. The problem is that this model, until now, required a level of infrastructure that small studios simply don't have.</p>
+      <p class="ed-text" data-i18n="mz.01.p2">Moovz saw an opening in this gap. And I was the designer responsible for turning that bet into a product.</p>
+      <div class="ed-highlight">
+        <h3>Blue Ocean Strategy — Kim & Mauborgne</h3>
+        <p>The bet was not to compete with consolidated gym management software, but to create an entirely new category: the operating system for the class experience itself.</p>
+      </div>
+    </div>
+
+    <!-- 02 — The Problem -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">02 — The Problem</span>
+      <h2 class="ed-title" data-i18n="mz.02.title">The problem has three owners</h2>
+      <p class="ed-text" data-i18n="mz.02.p1">What seemed like an operational cost problem — qualified instructors are expensive — was actually three overlapping problems.</p>
+      <p class="ed-text" data-i18n="mz.02.p2">For the studio owner: high personnel costs, inconsistent class experience between instructors, and a growth ceiling determined by the number of available professionals.</p>
+      <p class="ed-text" data-i18n="mz.02.p3">For the instructor: beyond teaching, planning new and varied workouts for each group is work that happens off the clock, without proportional compensation.</p>
+      <p class="ed-text" data-i18n="mz.02.p4">For the student: workout quality depends on which instructor showed up today. This creates an inconsistent experience that doesn't build loyalty.</p>
+      <p class="ed-text" data-i18n="mz.02.p5">The solution needed to solve all three at once — and that's what made designing this product complex.</p>
+      <div class="ed-split">
+        <div class="ed-split-item">
+          <h4 data-i18n="mz.02.owner">Studio Owner</h4>
+          <p data-i18n="mz.02.owner.desc">High personnel costs, inconsistent class experience between instructors, and a growth ceiling determined by the number of available professionals.</p>
+        </div>
+        <div class="ed-split-item">
+          <h4 data-i18n="mz.02.instructor">Instructor</h4>
+          <p data-i18n="mz.02.instructor.desc">Planning overload — creating new, varied, well-structured classes for each group is invisible work that drains time and energy.</p>
+        </div>
+      </div>
+      <div class="ed-split" style="margin-top: 1rem;">
+        <div class="ed-split-item">
+          <h4 data-i18n="mz.02.student">Student</h4>
+          <p data-i18n="mz.02.student.desc">Inconsistent experience quality, dependent on which instructor is available that day.</p>
+        </div>
+        <div class="ed-split-item">
+          <h4 data-i18n="mz.02.scale">The Ceiling</h4>
+          <p data-i18n="mz.02.scale.desc">One instructor = one class at a time. Scaling the business means scaling the payroll linearly.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mz.quote1">"The bet was to create the operating system of the class — not another gym management tool."</p>
+      <p class="ed-quote-caption" data-i18n="mz.quote1.caption">The strategic positioning that defined every product decision</p>
+    </div>
+
+    <!-- 03 — Solution Overview -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">03 — The Solution</span>
+      <h2 class="ed-title" data-i18n="mz.03.title">Five functional layers, one unified platform</h2>
+      <p class="ed-text" data-i18n="mz.03.p">Moovz designed a B2B2C web application — sold to the studio owner, but the final experience benefits students directly and simplifies the instructor's work. The solution was structured in five layers, each solving a piece of the puzzle.</p>
+    </div>
+
+    <!-- 04 — Layer 1: AI Class Creation -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">04 — AI-Powered Class Creation</span>
+      <h2 class="ed-title" data-i18n="mz.04.title">AI as scaffolding, not replacement</h2>
+      <p class="ed-text" data-i18n="mz.04.p1">The instructor creates classes with AI assistance — which suggests exercise sequences, work/rest timings, and workout structures based on parameters defined by the professional themselves.</p>
+      <p class="ed-text" data-i18n="mz.04.p2">The most important design decision here was keeping control with the instructor. The AI suggests, they decide. This respects Nielsen's Heuristic #3 — User Control and Freedom and, more importantly, respects the technical knowledge of a professional who spent years studying for this. The AI serves as scaffolding — reduces planning effort without replacing human judgment.</p>
+      <div class="ed-media">
+        <img src="Images/mclass_moovzclass_aicreating_1.png" alt="AI class creation — initial state" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Step 1 — AI Assistance</p>
+          <p>The instructor defines parameters and the AI suggests a complete class structure — configurable before confirmation.</p>
+        </div>
+      </div>
+      <div class="ed-media">
+        <img src="Images/mclass_moovzclass_aicreating_2_traincreated.png" alt="AI class creation — class generated" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Step 2 — Class Generated</p>
+          <p>The AI-generated class with exercises, timing and rest periods — fully editable by the instructor.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 — Layer 2: Schedule Grid -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">05 — Weekly & Daily Schedule</span>
+      <h2 class="ed-title" data-i18n="mz.05.title">Information density meets visual clarity</h2>
+      <p class="ed-text" data-i18n="mz.05.p">With classes ready, the owner organizes the schedule. The system automates programming — times, rooms, available instructors. The interface needed to be dense enough to give managerial visibility without being complicated to operate.</p>
+      <div class="ed-media">
+        <img src="Images/mclass_program_1.png" alt="Schedule programming overview" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Schedule Overview</p>
+          <p>The programming dashboard with weekly schedule and class previews at a glance.</p>
+        </div>
+      </div>
+      <div class="ed-media">
+        <img src="Images/mclass_program_2.png" alt="Weekly schedule grid with class selection" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Weekly Grid</p>
+          <p>Day-by-day schedule with time slots and class assignment — designed for Gestalt grouping and quick scanning.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 — Layer 3: Pre-class Display -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">06 — Pre-Class Display</span>
+      <h2 class="ed-title" data-i18n="mz.06.title">Reducing uncertainty before the class starts</h2>
+      <p class="ed-text" data-i18n="mz.06.p">Before class starts, students see on a screen what's coming — which workout is scheduled and exercise demonstrations. This solves something few people name but every student feels: the anxiety of not knowing what's going to happen. Reducing uncertainty before an aversive stimulus (intense workout) increases the willingness to face it.</p>
+      <div class="ed-media">
+        <img src="Images/mclass_tv_classes_view.png" alt="Pre-class TV display showing upcoming classes" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">TV Display — Pre-Class</p>
+          <p>Students see the next class, time, and exercise previews before it starts — reducing uncertainty and onboarding new members.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 — Layer 4: Live Class Player -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">07 — Live Class Player</span>
+      <h2 class="ed-title" data-i18n="mz.07.title">Designed for 4-meter readability under movement</h2>
+      <p class="ed-text" data-i18n="mz.07.p1">The instructor hits play. From there, exercises appear on video with sequence, timing, and instructions. A single instructor can run a full class with the same experience quality as a structured chain.</p>
+      <p class="ed-text" data-i18n="mz.07.p2">The design of this screen had an unusual constraint: it needs to work being read from 4 meters away, by someone in movement, in an environment with loud music and multiple visual stimuli. Every decision about typography, color, and hierarchy was made with this context in mind.</p>
+      <div class="ed-media">
+        <img src="Images/mclass_tv_exercise_view.png" alt="Live class player — exercise demonstration with timer" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Live Player — Exercise View</p>
+          <p>Full-screen exercise demonstration with countdown timer, exercise name, and rep counter — readable from 4+ meters.</p>
+        </div>
+      </div>
+      <div class="ed-media">
+        <img src="Images/mclass_tv_timer_view.png" alt="Live class player — timer mode" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Live Player — Timer Mode</p>
+          <p>Large-format countdown timer with circuit navigation — designed for high cognitive load environments with loud music and movement.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mz.quote2">"Every unnecessary element on screen is a distraction that costs attention in a moment where attention is scarce."</p>
+      <p class="ed-quote-caption" data-i18n="mz.quote2.caption">The design principle for the live class player</p>
+    </div>
+
+    <!-- 08 — B2B2C Model -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">08 — B2B2C Model</span>
+      <h2 class="ed-title" data-i18n="mz.08.title">Three users, one platform</h2>
+      <p class="ed-text" data-i18n="mz.08.p">One of the biggest design challenges was balancing three personas with radically different needs on the same platform. Each interface was designed for the specific use context of each persona.</p>
+      <ul class="ed-features">
+        <li><strong>Studio Owner</strong> — management panel (desktop, office environment). Needs control, visibility and operational simplicity.</li>
+        <li><strong>Instructor</strong> — class creation + live player (TV, gym floor, 3-5m distance). Needs creative autonomy and reduced planning effort.</li>
+        <li><strong>Student</strong> — pre-class display (passive viewing, no interaction). Needs clarity, motivation and a high-standard class experience.</li>
+      </ul>
+    </div>
+
+    <!-- 09 — Results & Project State -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">09 — Results & Project State</span>
+      <h2 class="ed-title" data-i18n="mz.09.title">A product in development — no fabricated metrics</h2>
+      <p class="ed-text" data-i18n="mz.09.p">Moovz Class was conceived and designed with complete flows and delivered interfaces. Adoption data and impact will be built with the launch. The concrete result here is the product itself — and it speaks for itself when well presented.</p>
+      <div class="ed-media">
+        <img src="Images/mclass_program_1.png" alt="Product overview — all delivered screens" />
+        <div class="ed-media-caption">
+          <p class="ed-media-label">Delivered Product</p>
+          <p>The result is the product itself — AI class creation, automated scheduling, pre-class display and live player, designed end-to-end.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 — Learnings -->
+    <div class="ed-section parallax-fade">
+      <span class="ed-number">10 — Learnings</span>
+      <h2 class="ed-title" data-i18n="mz.10.title">You can't optimize for just one persona in B2B2C</h2>
+      <p class="ed-text" data-i18n="mz.10.p1">Working on a B2B2C product exposed a challenge that rarely appears in B2C: you can't prioritize only the end user. The purchase decision is the studio owner's, but retention depends on the student's experience. Optimizing for one persona without considering the others can solve one problem and create three new ones.</p>
+      <p class="ed-text" data-i18n="mz.10.p2">The second learning was about extreme use context. Designing an interface that needs to work readable from 4 meters away, by a moving instructor, with loud music — is an exercise that forces absolute clarity. Every unnecessary element on screen costs attention in a moment where attention is scarce.</p>
+    </div>
+
+    <!-- Closing quote -->
+    <div class="ed-quote parallax-fade">
+      <p class="ed-quote-text" data-i18n="mz.10.quote">"Optimizing for one persona without considering the others can solve one problem and create three new ones."</p>
+      <p class="ed-quote-caption" data-i18n="mz.10.caption">The core lesson of B2B2C product design</p>
+    </div>
+
+  </div>
+
+  <!-- Contact -->
+  <section class="section section-contact" id="contact" style="position: relative; z-index: 1;">
+    <div class="section-inner contact-inner">
+      <h2 class="section-title parallax-fade" data-i18n="contact.title">Let's talk?</h2>
+      <a href="mailto:joaovitordesign.rs@gmail.com" class="contact-email parallax-fade">joaovitordesign.rs@gmail.com</a>
+      <div class="contact-links parallax-fade">
+        <a href="https://wa.me/5562981929917" target="_blank" rel="noopener">WhatsApp</a>
+        <span class="contact-sep">/</span>
+        <a href="https://www.linkedin.com/in/joaovitor-design/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="contact-sep">/</span>
+        <a href="https://github.com/joaovitordesignrs-sketch" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="case-footer">
+    <p>&copy; 2026 João Vitor Ramos. All rights reserved.</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
