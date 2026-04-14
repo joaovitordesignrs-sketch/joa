@@ -680,11 +680,11 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   position: relative;
   z-index: 2;
   padding: 1.25rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.15) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.15) 80%, transparent 100%);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  min-height: 45%;
+  min-height: 50%;
   justify-content: flex-end;
 }
 
