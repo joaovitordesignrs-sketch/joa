@@ -705,6 +705,26 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   color: rgba(255, 255, 255, 0.65);
 }
 
+.highlight-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.highlight-chip {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+
 /* ===================== TIMELINE VERTICAL ===================== */
 .timeline {
   position: relative;
