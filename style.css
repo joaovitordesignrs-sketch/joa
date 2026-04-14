@@ -448,14 +448,15 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
 .profile-roles {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.72rem;
+  gap: 0.35rem;
+  font-size: 0.62rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
 }
 
 .profile-roles span:not(.dot-sep) {
-  padding: 0.2rem 0.6rem;
+  padding: 0.18rem 0.5rem;
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 100px;
