@@ -613,6 +613,7 @@ a, button, .profile-card, .profile-card *, .timeline-card, .skill-card, .project
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
+  z-index: 3;
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 0.08em;
